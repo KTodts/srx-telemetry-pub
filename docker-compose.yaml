@@ -1,0 +1,139 @@
+# © 2023 Nokia.
+#
+# This code is a Contribution to the gNMIc project (“Work”) made under the Google Software Grant and Corporate Contributor License Agreement (“CLA”) and governed by the Apache License 2.0.
+# No other rights or licenses in or to any of Nokia’s intellectual property are granted for any other purpose.
+# This code is provided on an “as is” basis without any warranties of any kind.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# version: '3' 
+######################
+networks:
+  br-mgmt:
+    driver: bridge
+######################
+services:
+  gnmic1:
+    image: ghcr.io/openconfig/gnmic:latest
+    container_name: gnmic1
+    extra_hosts:
+#       - "7750-2se:100.116.162.36"  
+#       - "7750-1se:100.116.160.141"  
+#      - "h5-32d:100.116.162.54"
+#      - "h5-64d:100.116.162.38"
+#       - "h4-64d:100.116.162.54"
+      - "h5-64o:100.116.165.95"
+#       - "sar-1:100.116.162.51"
+#      - "7730-sxr-r6d:100.116.164.3"
+      - "h6-64o:100.116.165.97"
+#       - "7750-sr-1s:100.116.162.39"
+#      - "ixr-e3x:100.116.162.30"
+#       - "ixr-e3c:100.116.162.67"
+#      - "7730-sxr-1x-44s:100.116.164.2"
+#      - "7730-sxr-1-32d:100.116.164.4"
+#       - "7750-7s:100.116.160.142"
+        #- "ixr-e2:100.116.162.37"
+    volumes:
+       - ./gnmic/gnmic1.yaml:/app/gnmic.yaml
+    command: "subscribe --config /app/gnmic.yaml"
+    networks:
+      - br-mgmt
+    ports: 
+      - 9804:9804
+    depends_on:
+      - consul-agent 
+    ######################
+  consul-agent:
+    image: hashicorp/consul:latest
+    container_name: consul
+    networks:
+      - br-mgmt
+    ports:
+      - 8500:8500
+      - 8600:8600/udp
+    command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0    
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--storage.tsdb.retention.time=5d'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+      - '--web.enable-remote-write-receiver'
+      - '--log.level=debug'
+    ports:
+      - 9090:9090
+    networks:
+      - br-mgmt
+  ######################
+  pushgateway:
+        container_name: pushgateway
+        image: prom/pushgateway:latest
+        restart: unless-stopped
+        user: root
+        networks:
+          - br-mgmt
+        ports:
+            - 9091:9091
+        labels:
+            org.label-schema.group: "monitoring"
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
+    network_mode: host
+    pid: host
+    restart: unless-stopped
+    volumes:
+      - '/:/host:ro,rslave'
+  grafana:
+    container_name: grafana
+    restart: unless-stopped
+    image: 'grafana/grafana:12.4' # or 11.2
+    # image: 'grafana/grafana:11.6.2' # or 11.2
+    user: root
+    networks:
+       - br-mgmt
+    ports:
+       - 3000:3000     
+    environment:
+      GF_MIN_REFRESH_INTERVAL: 1s
+      GF_INSTALL_PLUGINS: "andrewbmchugh-flow-panel 1.20.1" 
+      GF_ORG_NAME: "Main Org"
+      GF_DASHBOARDS_MIN_REFRESH_INTERVAL: 1s
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_AUTH_DISABLE_LOGIN_FORM: "false"
+      GF_AUTH_OAUTH_AUTO_LOGIN: "true"
+      GF_ALLOW_LOADING_UNSIGNED_PLUGINS: "true"
+      GF_SECURITY_ANGULAR_SUPPORT_ENABLED: "true"
+      #GF_SECURITY_ADMIN_PASSWORD: telemetrySh0w
+      #GF_PLUGIN_DIR: /pluginfolder
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/:ro
+      - ./grafana/plugins:/var/lib/grafana/plugins
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      #- GF_PLUGIN_DIR:/pluginfolder
+  webserver:
+    image: nginx:latest
+    container_name: webserver
+    ports:
+      - "8080:8080"
+    networks:
+      - br-mgmt
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./html:/usr/share/nginx/html
+      - ./diagrams:/usr/share/nginx/html/diagrams
+    restart: unless-stopped
+######################
+volumes:
+  prometheus-data:
+  grafana-data:
+  #GF_PLUGIN_DIR:

@@ -1,0 +1,64 @@
+---
+anchors:
+  thresholds-power: &thresholds-operstate
+    - color: "#FF3154" # red
+      level: 0
+    - color: "#4BDD33" # green
+      level: 1
+  label-config: &label-config
+    separator: replace
+    units: none
+    decimalPoints: 1
+    unitsPostfix: "dB"
+    # valueMappings:
+    #   - valueMax: 1000000000000
+    #     text:
+    #   - valueMin: 199999999999
+  label-config-pwr: &label-config-pwr
+    separator: replace
+    units: none
+    unitsPostfix: "dBm"
+    decimalPoints: 1   
+cellColorMappings:
+  darkTheme:
+    green: "#00FF00"
+  lightTheme:
+    green: "light-green"
+cellIdPreamble: cell-
+cells:
+  VALUE1:A:
+    dataRef: 7750-2se:1/1/c17:1:gain
+    label: *label-config
+  VALUE2:A:
+    dataRef: 7750-2se:1/1/c17:1:tx
+    label: *label-config-pwr
+  VALUE3:A:
+    dataRef: 7750-2se:1/1/c17:1:rx
+    label: *label-config-pwr
+  VALUE4:A:
+    dataRef: 7750-2se:1/1/c17:2:gain
+    label: *label-config
+  VALUE5:A:
+    dataRef: 7750-2se:1/1/c17:2:tx
+    label: *label-config-pwr
+  VALUE6:A:
+    dataRef: 7750-2se:1/1/c17:2:rx
+    label: *label-config-pwr
+  VALUE1:B:
+    dataRef: 7750-1se:1/1/c11:1:gain
+    label: *label-config
+  VALUE2:B:
+    dataRef: 7750-1se:1/1/c11:1:tx
+    label: *label-config-pwr
+  VALUE3:B:
+    dataRef: 7750-1se:1/1/c11:1:rx
+    label: *label-config-pwr
+  VALUE4:B:
+    dataRef: 7750-1se:1/1/c11:2:gain
+    label: *label-config
+  VALUE5:B:
+    dataRef: 7750-1se:1/1/c11:2:tx
+    label: *label-config-pwr
+  VALUE6:B:
+    dataRef: 7750-1se:1/1/c11:2:rx
+    label: *label-config-pwr

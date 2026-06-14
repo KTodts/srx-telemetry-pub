@@ -1,0 +1,1659 @@
+{
+  "__elements": {},
+  "__inputs": [
+    {
+      "description": "",
+      "label": "Prometheus",
+      "name": "DS_PROMETHEUS",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus",
+      "type": "datasource"
+    }
+  ],
+  "__requires": [
+    {
+      "id": "agenty-flowcharting-panel",
+      "name": "FlowCharting",
+      "type": "panel",
+      "version": "0.9.1"
+    },
+    {
+      "id": "grafana",
+      "name": "Grafana",
+      "type": "grafana",
+      "version": "9.4.7"
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "type": "datasource",
+      "version": "1.0.0"
+    },
+    {
+      "id": "timeseries",
+      "name": "Time series",
+      "type": "panel",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations \u0026 Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "editedFlag": true,
+      "flowchartsData": {
+        "flowcharts": [
+          {
+            "allowDrawio": false,
+            "center": true,
+            "csv": "## See more information for the syntax at https://drawio-app.com/import-from-csv-to-drawio/\n##\n## Example CSV. Use ## for comments and # for configuration.\n## The following names are reserved and should not be used (or ignored):\n## id, tooltip, placeholder(s), link and label (see below)\n##\n#\n## Node label with placeholders and HTML.\n## Default is '%name_of_first_column%'.\n#\n# label: %name%\u003cbr\u003e\u003ci style=\"color:gray;\"\u003e%position%\u003c/i\u003e\u003cbr\u003e\u003ca href=\"mailto:%email%\"\u003eEmail\u003c/a\u003e\n#\n## Node style (placeholders are replaced once).\n## Default is the current style for nodes.\n#\n# style: label;image=%image%;whiteSpace=wrap;html=1;rounded=1;fillColor=%fill%;strokeColor=%stroke%;\n#\n## Parent style for nodes with child nodes (placeholders are replaced once).\n#\n# parentstyle: swimlane;whiteSpace=wrap;html=1;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;\n#\n## Optional column name that contains a reference to a named style in styles.\n## Default is the current style for nodes.\n#\n# stylename: -\n#\n## JSON for named styles of the form {\"name\": \"style\", \"name\": \"style\"} where style is a cell style with\n## placeholders that are replaced once.\n#\n# styles: -\n#\n## Optional column name that contains a reference to a named label in labels.\n## Default is the current label.\n#\n# labelname: -\n#\n## JSON for named labels of the form {\"name\": \"label\", \"name\": \"label\"} where label is a cell label with\n## placeholders.\n#\n# labels: -\n#\n## Uses the given column name as the identity for cells (updates existing cells).\n## Default is no identity (empty value or -).\n#\n# identity: -\n#\n## Uses the given column name as the parent reference for cells. Default is no parent (empty or -).\n## The identity above is used for resolving the reference so it must be specified.\n#\n# parent: -\n#\n## Adds a prefix to the identity of cells to make sure they do not collide with existing cells (whose\n## IDs are numbers from 0..n, sometimes with a GUID prefix in the context of realtime collaboration).\n## Default is csvimport-.\n#\n# namespace: csvimport-\n#\n## Connections between rows (\"from\": source colum, \"to\": target column).\n## Label, style and invert are optional. Defaults are '', current style and false.\n## If placeholders are used in the style, they are replaced with data from the source.\n## An optional placeholders can be set to target to use data from the target instead.\n## In addition to label, an optional fromlabel and tolabel can be used to name the column\n## that contains the text for the label in the edges source or target (invert ignored).\n## The label is concatenated in the form fromlabel + label + tolabel if all are defined.\n## The target column may contain a comma-separated list of values.\n## Multiple connect entries are allowed.\n#\n# connect: {\"from\": \"manager\", \"to\": \"name\", \"invert\": true, \"label\": \"manages\", \\\n#          \"style\": \"curved=1;endArrow=blockThin;endFill=1;fontSize=11;\"}\n# connect: {\"from\": \"refs\", \"to\": \"id\", \"style\": \"curved=1;fontSize=11;\"}\n#\n## Node x-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# left: \n#\n## Node y-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# top: \n#\n## Node width. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the width. Default is auto.\n#\n# width: auto\n#\n## Node height. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the height. Default is auto.\n#\n# height: auto\n#\n## Padding for autosize. Default is 0.\n#\n# padding: -12\n#\n## Comma-separated list of ignored columns for metadata. (These can be\n## used for connections and styles but will not be added as metadata.)\n#\n# ignore: id,image,fill,stroke,refs,manager\n#\n## Column to be renamed to link attribute (used as link).\n#\n# link: url\n#\n## Spacing between nodes. Default is 40.\n#\n# nodespacing: 40\n#\n## Spacing between levels of hierarchical layouts. Default is 100.\n#\n# levelspacing: 100\n#\n## Spacing between parallel edges. Default is 40. Use 0 to disable.\n#\n# edgespacing: 40\n#\n## Name or JSON of layout. Possible values are auto, none, verticaltree, horizontaltree,\n## verticalflow, horizontalflow, organic, circle or a JSON string as used in Layout, Apply.\n## Default is auto.\n#\n# layout: auto\n#\n## ---- CSV below this line. First line are column names. ----\nname,position,id,location,manager,email,fill,stroke,refs,url,image\nEvan Miller,CFO,emi,Office 1,,me@example.com,#dae8fc,#6c8ebf,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-9-2-128.png\nEdward Morrison,Brand Manager,emo,Office 2,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-128.png\nRon Donovan,System Admin,rdo,Office 3,Evan Miller,me@example.com,#d5e8d4,#82b366,\"emo,tva\",https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-2-128.png\nTessa Valet,HR Director,tva,Office 4,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png\n",
+            "download": false,
+            "editorTheme": "dark",
+            "editorUrl": "https://www.draw.io",
+            "enableAnim": true,
+            "grid": false,
+            "lock": true,
+            "name": "Main",
+            "scale": true,
+            "tooltip": true,
+            "type": "xml",
+            "url": "http://\u003cYourUrl\u003e/\u003cYour XML/drawio file/api\u003e",
+            "xml": "\u003cmxfile host=\"embed.diagrams.net\" modified=\"2022-09-19T10:59:06.510Z\" agent=\"5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\" etag=\"vx8TpyUREyD0ojUDtyza\" version=\"20.3.2\" type=\"embed\"\u003e\u003cdiagram id=\"BOg-iPhrPiJ-R9A_f91F\" name=\"Page-1\"\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\u003c/diagram\u003e\u003c/mxfile\u003e",
+            "zoom": "100%"
+          }
+        ]
+      },
+      "format": "short",
+      "graphId": "flowchart_2",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "newFlag": false,
+      "rulesData": {
+        "rulesData": [
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:1/1/1:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 1,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:1/1/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "75",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "75",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:1/1/1:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 2,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:1/1/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "71",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "71",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:2/1/9:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 3,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:2/1/9:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "50",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "50",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:2/1/8:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 4,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:2/1/8:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "49",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "49",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:1/2/7:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 5,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:1/2/7:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "48",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "48",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:1/2/6:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 6,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:1/2/6:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "41",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "41",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:1/2/1:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 7,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:1/2/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "69",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "69",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-2.node.ipd.lab:1/2/1:in",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 8,
+            "overlayIcon": false,
+            "pattern": "sros-2.node.ipd.lab:1/2/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "53",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "53",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:1/2/1:in",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 9,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:1/2/1:in",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "67",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "67",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:1/2/1:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 10,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:1/2/1:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "56",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "56",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:2/1/9:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 11,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:2/1/9:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "64",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "64",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:2/1/8:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 12,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:2/1/8:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "62",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "62",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:1/2/7:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 13,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:1/2/7:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "60",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "60",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "sros-1.node.ipd.lab:1/2/6:out",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": true,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 14,
+            "overlayIcon": false,
+            "pattern": "sros-1.node.ipd.lab:1/2/6:out",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "58",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [
+              {
+                "hidden": false,
+                "pattern": "58",
+                "textOn": "wmd",
+                "textPattern": "/.*/",
+                "textReplace": "content"
+              }
+            ],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_port_out_out_octets{source=~\"sros-[12].node.ipd.lab\", port_id=~\"$port_id\"}[$interval])*8",
+          "legendFormat": "{{source}}:{{port_id}}:out",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_port_in_in_octets{source=~\"sros-[12].node.ipd.lab\", port_id=~\"$port_id\"}[$interval])*8",
+          "hide": false,
+          "legendFormat": "{{source}}:{{port_id}}:in",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "agenty-flowcharting-panel",
+      "valueName": "current",
+      "version": "0.9.0"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_egress_offered_byte_offered_byte{source='sros-1.node.ipd.lab', slot_number='1'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Offered",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_egress_forwarded_byte_forwarded_byte{source='sros-1.node.ipd.lab', slot_number='1'}[$interval])*8",
+          "legendFormat": "Forwarded",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_egress_dropped_byte_dropped_byte{source='sros-1.node.ipd.lab', slot_number='1'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Dropped",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "sros-1_card-1_egress",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_ingress_offered_byte_offered_byte{source='sros-2.node.ipd.lab', slot_number='1'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Offered",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_ingress_forwarded_byte_forwarded_byte{source='sros-2.node.ipd.lab', slot_number='1'}[$interval])*8",
+          "legendFormat": "Forwarded",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_ingress_dropped_byte_dropped_byte{source='sros-2.node.ipd.lab', slot_number='1'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Dropped",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "sros-2_card-1_ingress",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_egress_offered_byte_offered_byte{source='sros-1.node.ipd.lab', slot_number='2'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Offered",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_egress_forwarded_byte_forwarded_byte{source='sros-1.node.ipd.lab', slot_number='2'}[$interval])*8",
+          "legendFormat": "Forwarded",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_egress_dropped_byte_dropped_byte{source='sros-1.node.ipd.lab', slot_number='2'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Dropped",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "sros-1_card-2_egress",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_ingress_offered_byte_offered_byte{source='sros-2.node.ipd.lab', slot_number='2'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Offered",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_ingress_forwarded_byte_forwarded_byte{source='sros-2.node.ipd.lab', slot_number='2'}[$interval])*8",
+          "legendFormat": "Forwarded",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$func(SROS_ipv4_filter_ingress_dropped_byte_dropped_byte{source='sros-2.node.ipd.lab', slot_number='2'}[$interval])*8",
+          "hide": false,
+          "legendFormat": "Dropped",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "sros-2_card-2_ingress",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
+        "definition": "label_values(source)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "source",
+        "options": [],
+        "query": {
+          "query": "label_values(source)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "([1-9]|1[0-2])/[1-4]/([1-9]|10)",
+          "value": "([1-9]|1[0-2])/[1-4]/([1-9]|10)"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "port_id",
+        "options": [
+          {
+            "selected": true,
+            "text": "([1-9]|1[0-2])/[1-4]/([1-9]|10)",
+            "value": "([1-9]|1[0-2])/[1-4]/([1-9]|10)"
+          }
+        ],
+        "query": "([1-9]|1[0-2])/[1-4]/([1-9]|10)",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "rate",
+          "value": "rate"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "func",
+        "options": [
+          {
+            "selected": true,
+            "text": "rate",
+            "value": "rate"
+          },
+          {
+            "selected": false,
+            "text": "irate",
+            "value": "irate"
+          }
+        ],
+        "query": "rate, irate",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "180s",
+          "value": "180s"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "30s",
+            "value": "30s"
+          },
+          {
+            "selected": false,
+            "text": "60s",
+            "value": "60s"
+          },
+          {
+            "selected": false,
+            "text": "90s",
+            "value": "90s"
+          },
+          {
+            "selected": false,
+            "text": "120s",
+            "value": "120s"
+          },
+          {
+            "selected": false,
+            "text": "150s",
+            "value": "150s"
+          },
+          {
+            "selected": true,
+            "text": "180s",
+            "value": "180s"
+          }
+        ],
+        "query": "30s, 60s, 90s, 120s, 150s, 180s",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "LAG Load Balancing",
+  "uid": "YTE3NXM4z",
+  "version": 2,
+  "weekStart": ""
+}

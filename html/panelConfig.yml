@@ -1,0 +1,238 @@
+---
+anchors:
+  thresholds-operstate: &thresholds-operstate
+    - color: "#FF3154" # red
+      level: 0
+    - color: "#4BDD33" # green
+      level: 1
+  thresholds-traffic: &thresholds-traffic
+    - color: "#bec8d2" # grey
+      level: 0
+    - color: "#4BDD33" # green
+      level: 199999999999
+    - color: "#FFFF00" # yellow
+      level: 500000000000
+    - color: "#FF8000" # orange
+      level: 1000000000000
+    - color: "#FF3154" # red
+      level: 5000000000000
+  label-config: &label-config
+    separator: replace
+    units: bps
+    decimalPoints: 1
+    valueMappings:
+      - valueMax: 1000000000000
+        text:
+      - valueMin: 199999999999
+cellIdPreamble: cell-
+cells:
+  7750-1se:7750-2se:j01:
+    dataRef: oper-state:7750-1se:1/1/c19
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-1se:7750-2se:01:
+    dataRef: 7750-1se:1/1/c19/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-2se:7750-1se:01:
+    dataRef: 7750-1se:1/1/c19/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-1se:7750-2se:j02:
+    dataRef: oper-state:7750-1se:1/1/c23
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-1se:7750-2se:02:
+    dataRef: 7750-1se:1/1/c23/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-2se:7750-1se:02:
+    dataRef: 7750-1se:1/1/c23/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-1se:7750-2se:j03:
+    dataRef: oper-state:7750-1se:1/1/c29
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-1se:7750-2se:03:
+    dataRef: 7750-1se:1/1/c29/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-2se:7750-1se:03:
+    dataRef: 7750-1se:1/1/c29/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-1se:j01:
+    dataRef: oper-state:7750-1se:1/1/c1
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-1se:ixia:01:
+    dataRef: 7750-1se:1/1/c1/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-1se:01:
+    dataRef: 7750-1se:1/1/c1/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-1se:j02:
+    dataRef: oper-state:7750-1se:1/1/c5
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-1se:ixia:02:
+    dataRef: 7750-1se:1/1/c5/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-1se:02:
+    dataRef: 7750-1se:1/1/c5/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-1se:j03:
+    dataRef: oper-state:7750-1se:1/1/c11
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-1se:ixia:03:
+    dataRef: 7750-1se:1/1/c11/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-1se:03:
+    dataRef: 7750-1se:1/1/c11/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:j01:
+    dataRef: oper-state:7750-2se:1/1/c19
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-2se:ixia:01:
+    dataRef: 7750-2se:1/1/c19/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:01:
+    dataRef: 7750-2se:1/1/c19/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:j02:
+    dataRef: oper-state:7750-2se:1/1/c23
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-2se:ixia:02:
+    dataRef: 7750-2se:1/1/c23/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:02:
+    dataRef: 7750-2se:1/1/c23/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:j03:
+    dataRef: oper-state:7750-2se:1/1/c29
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-2se:ixia:03:
+    dataRef: 7750-2se:1/1/c29/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:03:
+    dataRef: 7750-2se:1/1/c29/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:j04:
+    dataRef: oper-state:7750-2se:1/1/c35
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-2se:ixia:04:
+    dataRef: 7750-2se:1/1/c35/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:7750-2se:04:
+    dataRef: 7750-2se:1/1/c35/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:1x-92s:j:
+    dataRef: oper-state:1x-92s:1/1/c21
+    fillColor:
+      thresholds: *thresholds-operstate
+  1x-92s:ixia:
+    dataRef: 1x-92s:1/1/c21/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  ixia:1x-92s:
+    dataRef: 1x-92s:1/1/c21/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-2se:7730-1x44s:j01:
+    dataRef: oper-state:7750-2se:1/1/c15
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-2se:7730-1x44s:01:
+    dataRef: 7750-2se:1/1/c15/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7730-1x44s:7750-2se:01:
+    dataRef: 7750-2se:1/1/c15/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7750-2se:7730-1x44s:j02:
+    dataRef: oper-state:7750-2se:1/1/c17
+    fillColor:
+      thresholds: *thresholds-operstate
+  7750-2se:7730-1x44s:02:
+    dataRef: 7750-2se:1/1/c17/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7730-1x44s:7750-2se:02:
+    dataRef: 7750-2se:1/1/c17/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  1x-92s:7730-1x44s:j01:
+    dataRef: oper-state:1x-92s:1/1/c67
+    fillColor:
+      thresholds: *thresholds-operstate
+  1x-92s:7730-1x44s:01:
+    dataRef: 1x-92s:1/1/c67/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7730-1x44s:1x-92s:01:
+    dataRef: 1x-92s:1/1/c67/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  1x-92s:7730-1x44s:j02:
+    dataRef: oper-state:1x-92s:1/1/c71
+    fillColor:
+      thresholds: *thresholds-operstate
+  1x-92s:7730-1x44s:02:
+    dataRef: 1x-92s:1/1/c71/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic
+  7730-1x44s:1x-92s:02:
+    dataRef: 1x-92s:1/1/c71/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic

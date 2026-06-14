@@ -1,0 +1,34 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "community",
+  "signedByOrg": "volkovlabs",
+  "signedByOrgName": "Volkov Labs",
+  "plugin": "volkovlabs-variable-panel",
+  "version": "5.0.0",
+  "time": 1759168657017,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "CHANGELOG.md": "d287c3bca3115dfbf68017e353d27647502377e18fe7b568c059c47e486470a0",
+    "module.js.LICENSE.txt": "b823f1e3b057f625e6ecda3c6bf4df4606d75178a72078ab08d568956e83cf56",
+    "LICENSE": "da95e3039cd303c10350f7214e9fb2171ce93f1210897a6fcd2d7ac88802a80b",
+    "module.js": "a5715f62c4be4ec5ed559d9dd4b48f6d69a4531aac4e1c8990ccf033615351e9",
+    "img/logo.svg": "2058da266e36cd984675669731ae9e8c7824d8927934b4f7e23d5c2c556602af",
+    "img/dashboard.png": "ccbf9ad4fb842b7db7541997ae47c1dc46c2bfe7dcd6d4496b0b5e5d742523fd",
+    "README.md": "3d2318a80768fff16b17e9936ef31aea0fedde31714fe80b1c3526aad5b45ea0",
+    "module.js.map": "ae48b5329113bd22c0f54310cf2019d72203993935226ef2e3f0edefe3bc366a",
+    "plugin.json": "bb74743e92bf4e6964f8128e3b0e813d6922c0ca0db26df1f2b62fb5373c5060"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+
+wsA9BAETCgBtBYJo2siRCZB+TQxqcIhm50UUAAAAAAAcACBzYWx0QG5vdGF0
+aW9ucy5vcGVucGdwanMub3JnkUVboWDUfSfZeDgOc0jsooaJsPmMT7n+1GKZ
+8fXntA4WIQTzOyW2kQdOhGNlcPN+TQxqcIhm5wAAHxgCBiYPESZeIdVXvr21
+pPiu3SnCr3UUJbY99XELK5CW+aUq60W4gJR6W1g/RsO0hQC176OCq/jP8NfZ
+9IK54ymCJ2A+AgUVnH4vdEAEUq1Fx0YAT/YYc0xVxDzDi2rAbXmfe9aFUrq2
+oLFVOiBsKBSv8w3kI/z15Zl6Fzu3w0nuvHrn0bG3ag==
+=TXaS
+-----END PGP SIGNATURE-----

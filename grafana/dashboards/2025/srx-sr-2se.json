@@ -1,0 +1,173 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations \u0026 Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1703529252671488,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "animationControlEnabled": true,
+        "animationsEnabled": true,
+        "debuggingCtr": {
+          "colorsCtr": 0,
+          "dataCtr": 0,
+          "displaySvgCtr": 0,
+          "mappingsCtr": 0,
+          "timingsCtr": 0
+        },
+        "highlighterEnabled": true,
+        "highlighterSelection": "",
+        "panZoomEnabled": true,
+        "panelConfig": "http://100.116.162.35:8080/panelConfig_2se.yml",
+        "siteConfig": "http://100.116.162.35:8080/siteConfig.yml",
+        "svg": "http://100.116.162.35:8080/diagrams/sr2-se.drawio.svg",
+        "testDataEnabled": true,
+        "timeSliderEnabled": false,
+        "timeSliderMode": "local"
+      },
+      "pluginVersion": "1.18.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "port_transceiver_digital_diagnostic_monitoring_lane_received_optical_power_current{lane_lane_id=\"1\",source=\"7750-2se\",subscription_name=\"sr2se-transceivers\"} \n",
+          "legendFormat": "{{source}}:{{interface_name}}:rxPow",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "7750 SR-2se: Rx Optical Power",
+      "type": "andrewbmchugh-flow-panel"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 2,
+      "options": {
+        "animationControlEnabled": true,
+        "animationsEnabled": true,
+        "debuggingCtr": {
+          "colorsCtr": 0,
+          "dataCtr": 0,
+          "displaySvgCtr": 0,
+          "mappingsCtr": 0,
+          "timingsCtr": 0
+        },
+        "highlighterEnabled": true,
+        "highlighterSelection": "",
+        "panZoomEnabled": true,
+        "panelConfig": "http://100.116.162.35:8080/panelConfig_coil.yml",
+        "siteConfig": "http://100.116.162.35:8080/siteConfig.yml",
+        "svg": "http://100.116.162.35:8080/diagrams/coil.drawio.svg",
+        "testDataEnabled": true,
+        "timeSliderEnabled": false,
+        "timeSliderMode": "local"
+      },
+      "pluginVersion": "1.18.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "port_transceiver_digital_diagnostic_monitoring_lane_received_optical_power_current\n",
+          "legendFormat": "{{source}}:{{interface_name}}:{{lane_lane_id}}:rx",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "port_transceiver_digital_diagnostic_monitoring_lane_transmit_output_power_current\n",
+          "hide": false,
+          "legendFormat": "{{source}}:{{interface_name}}:{{lane_lane_id}}:tx",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "port_transceiver_digital_diagnostic_monitoring_lane_transmit_bias_current_current\n",
+          "hide": false,
+          "legendFormat": "{{source}}:{{interface_name}}:{{lane_lane_id}}:gain",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "QSFP-LS",
+      "type": "andrewbmchugh-flow-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "auto",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "SRX-SR-2se",
+  "uid": "eenmoa8yalxq8a",
+  "version": 1
+}

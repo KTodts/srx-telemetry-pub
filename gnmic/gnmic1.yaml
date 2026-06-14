@@ -1,0 +1,331 @@
+username: admin
+password: admin
+insecure: true
+log: true
+log-max-size: 1G
+
+targets:
+  h6-64o:
+    address: h6-64o:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+      - srl-queue-stats
+    outputs:
+      - prom-output
+  # sar-1:
+  #   address: sar-1:57400
+  #   subscriptions:
+  #     - sros-system-performance
+  #     - sros-in-port-util
+  #     - sros-out-port-util
+  #     - sros-nat
+  #     - sros-all-nat
+  #     - sros-isa-performance 
+  #   outputs: 
+  #     - prom-output
+  ixr-e3x:
+    address: ixr-e3x:57400
+    subscriptions:
+      - sros-system-performance
+      - sros-in-port-util
+      - sros-out-port-util
+    outputs:
+      - prom-output
+  # ixr-e3c:
+  #   address: ixr-e3c:57400
+  #   subscriptions:
+  #     - sros-system-performance
+  #     - sros-in-port-util
+  #     - sros-out-port-util
+  #   outputs:
+  #     - prom-output
+  # 7750-2se:
+  #   address: 7750-2se:57400
+  #   subscriptions:
+  #     - sros-system-performance
+  #     - sros-in-port-util
+  #     - sros-out-port-util
+  #     - sr2se-transceivers
+  #   outputs: 
+  #     - prom-output
+  # 7750-1se:
+  #   address: 7750-1se:57400
+  #   subscriptions:
+  #     - sros-system-performance
+  #     - sros-in-port-util
+  #     - sros-out-port-util
+  #     - sr1se-transceivers
+  #   outputs: 
+  #     - prom-output
+  # h4-64d:
+  #   address: h4-64d:57400
+  #   password: NokiaSrl1!
+  #   skip-verify: true
+  #   insecure: false
+  #   subscriptions:
+  #     - srl-system-performance
+  #     - srl-if-stats
+  #   outputs: 
+  #     - prom-output
+#  h5-64d:
+#    address: h5-64d:57400
+#    password: NokiaSrl1!
+#    skip-verify: true
+#    insecure: false
+#    subscriptions:
+#      - srl-system-performance
+#      - srl-if-stats
+#    outputs:
+#      - prom-output
+  h5-64o:
+    address: h5-64o:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+    outputs:
+      - prom-output
+  7730-sxr-r6d:
+    address: 7730-sxr-r6d:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-system-victor
+    outputs:
+      - prom-output
+  7730-sxr-1x-44s:
+    address: 7730-sxr-1x-44s:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-system-victor
+    outputs:
+      - prom-output
+  7730-sxr-1-32d:
+    address: 7730-sxr-1-32d:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-system-victor
+    outputs:
+      - prom-output
+  # 7750-7s:
+  #   address: 7750-7s:57400
+  #   subscriptions:
+  #     #      - sros-system-performance
+  #     - sros-in-port-util
+  #     - sros-out-port-util
+  #     - sros-power
+  #       #      - sr2se-transceivers
+  #   outputs:
+  #     - prom-output
+subscriptions:
+  sros-power:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 1s
+    paths:
+      - /state/card[slot-number=*]/mda[mda-slot=*]/hardware-resource/wattage
+      - /state/chassis
+      - /state/card[slot-number=*]/hardware-data/temperature
+      - /state/card[slot-number=*]/installed-xiom-slots
+      - /state/system/power-management[power-zone=1]/total-wattage
+      - /state/sfm[sfm-slot=*]/hardware-resource/wattage
+
+  sros-isa-performance: 
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /state/system/cpu[sample-period=1]/isa
+      - /state/system/cpu[sample-period=1]/summary/busiest-core-utilization
+
+  sros-nat:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths:
+      - /state/isa/nat-group[id=1]/mda[mda-id=1/2]/performance/last-hour/minutes-ago[index=5]
+      - /state/isa/nat-group[id=1]/mda[mda-id=1/2]/resources/flows
+  
+  sros-all-nat:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths:
+      #- /state/isa/nat-group[id=1]/mda[mda-id=1/2]/resources
+      - /state/isa/nat-group[id=1]/member[id=1]/resources/large-scale-hosts
+
+  sros-system-performance: 
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /state/system/memory-pools/summary
+      - /state/system/cpu[sample-period=1]/summary/usage
+      - /state/system/cpu[sample-period=1]/summary/idle
+      - /state/chassis[chassis-class=router][chassis-number=1]/fan[fan-slot=*]/speed
+      - /state/chassis[chassis-class=router][chassis-number=1]/chassis-control-module[ccm-slot=*]/hardware-data
+      - /state/card[slot-number=1]/hardware-data
+      - /state/card[slot-number=1]/mda[mda-slot=1]/hardware-data
+
+  sros-in-port-util:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 1s
+    paths:
+      - /state/port[port-id=*]/ethernet/statistics/in-utilization
+      - /state/port[port-id=*]/ethernet/oper-speed
+      - /state/port[port-id=*]/oper-state
+  sros-out-port-util:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 1s
+    paths:
+      - /state/port[port-id=*]/ethernet/statistics/out-utilization
+      - /state/port[port-id=*]/ethernet/oper-speed
+
+  sr2se-transceivers:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 2s
+    paths:
+      - /state/port[port-id=1/1/c1]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c1]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c2]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c2]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c8]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c8]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c9]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c9]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c12]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c12]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c13]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c13]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c19]/dwdm/coherent/statistics
+      - /state/port[port-id=1/1/c19]/transceiver/digital-diagnostic-monitoring
+      - /state/port[port-id=1/1/c17]/transceiver/digital-diagnostic-monitoring
+  sr1se-transceivers:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 2s
+    paths:
+      - /state/port[port-id=1/1/c11]/transceiver/digital-diagnostic-monitoring
+
+
+  srl-system-performance: 
+    mode: stream
+    stream-mode: sample
+    sample-interval: 5s
+    paths: 
+      - /platform/control[slot=*]/cpu[index=all]/total
+      - /platform/control[slot=*]/memory
+  srl-system-victor:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 5s
+    paths:
+      - /platform/linecard[slot=1]/forwarding-complex[name=0]/datapath/xdp
+      - /network-instance[name=*]/route-table/ipv4-unicast/route-summary/route-type[ip-route-type-name=*]
+      - /network-instance[name=*]/route-table/ipv6-unicast/route-summary/route-type[ip-route-type-name=*]
+      - /network-instance[name=default]/tunnel-table/ipv4/tunnel-summary/tunnel-type[type=*]
+      - /network-instance[name=default]/tunnel-table/ipv6/tunnel-summary/tunnel-type[type=*]
+      - /interface[name=*]/traffic-rate
+      - /platform/linecard[slot=*]/forwarding-complex[name=*]/tcam/resource[name=*]
+      - /platform/control[slot=A]/memory
+      - /platform/control[slot=A]/cpu[index=all]/total
+      - /platform/control[slot=A]/temperature
+      - /platform/fan-tray[id=*]/fan/speed
+      - /platform/chassis/power/total
+      - /interface[name=*]/subinterface[index=*]/statistics
+  srl-if-stats:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /interface[name=ethernet-1/*]/oper-state
+      - /interface[name=ethernet-1/*]/statistics
+      - /interface[name=ethernet-1/*]/traffic-rate
+  srl-queue-stats:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /qos/interfaces/interface[interface-id=ethernet-1/3]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/3]/output/queues/queue[queue-name=unicast-*]/queue-depth
+      - /qos/packet-trimming/enable-packet-trimming
+outputs:
+  prom-output:
+    type: prometheus
+    listen: "gnmic1:9804"
+    # export-timestamps: true
+    service-registration:
+      address: consul:8500
+    event-processors:
+     - trim-prefixes
+     - rename-port-sros
+     - oper-state-to-int
+  prom-write:
+    type: prometheus_write
+    url: http://prometheus:9090/api/v1/write
+    export-timestamps: true
+    metadata:
+      include: true
+    event-processors:
+     - trim-prefixes
+     - rename-port-sros
+     - oper-state-to-int
+  debug-file:
+    type: file
+    filename: /app/gnmic-subscription.log
+    format: event
+    event-processors:
+     - trim-prefixes
+     - rename-port-sros
+     - oper-state-to-int
+processors:
+  trim-prefixes:
+    event-strings:
+      value-names:
+        - "^/state/.*"
+      transforms:
+        - trim-prefix:
+            apply-on: "name"
+            prefix: "/state/"
+  oper-state-to-int:
+    event-strings:
+      value-names:
+        - ".*"
+      transforms:
+        - replace:
+            apply-on: "value"
+            old: "up"
+            new: "1"
+        - replace: 
+            apply-on: "value"
+            old: "down"
+            new: "0"  
+        - replace:
+            apply-on: "value"
+            old: "true"
+            new: "1"
+        - replace: 
+            apply-on: "value"
+            old: "false"
+            new: "0"  
+  rename-port-sros:
+    event-strings:
+      tag-names:
+        - "^port_port-id"
+      transforms:
+        - replace:
+            apply-on: "name"
+            old: "port_port-id"
+            new: "interface_name"

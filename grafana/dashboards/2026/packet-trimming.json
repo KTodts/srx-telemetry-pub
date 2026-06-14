@@ -1,0 +1,776 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "Packet Trimming",
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "dark-red",
+                  "index": 1,
+                  "text": "Disabled"
+                },
+                "1": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "Enabled"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 17,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "qos_packet_trimming_enable_packet_trimming",
+          "legendFormat": "Packet Trimming     ",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 7,
+        "x": 17,
+        "y": 0
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h6-64o\",interface_name=\"ethernet-1/3\"}+4000000000",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Total port rate at Bottleneck",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 22,
+        "w": 17,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "options": {
+        "animationControlEnabled": true,
+        "animationsEnabled": true,
+        "debuggingCtr": {
+          "colorsCtr": 2,
+          "dataCtr": 7,
+          "displaySvgCtr": 2,
+          "mappingsCtr": 17,
+          "timingsCtr": 2
+        },
+        "highlighterEnabled": true,
+        "highlighterSelection": "",
+        "panZoomEnabled": false,
+        "panelConfig": "http://100.116.163.208:8080/panelConfig_h6_64o.yml",
+        "siteConfig": "http://100.116.163.208:8080/siteConfig.yml",
+        "svg": "http://100.116.163.208:8080/diagrams/h6-topo-packet-trimming.drawio.svg",
+        "testDataEnabled": true,
+        "timeSliderEnabled": false,
+        "timeSliderMode": "local"
+      },
+      "pluginVersion": "1.20.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_in_bps{source=\"h6-64o\",interface_name=\"ethernet-1/2\"}",
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_in_bps{source=\"h6-64o\",interface_name=\"ethernet-1/1\"}+4000000000",
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h6-64o\"}+4000000000",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h5-64o\"}+4000000000",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Packet Trimming",
+      "type": "andrewbmchugh-flow-panel"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 17,
+        "y": 3
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "rate(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_transmitted_packets{queue_queue_name=\"unicast-3\"}[1m])",
+          "legendFormat": "Transmit at Bottleneck",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(\n  rate(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_transmitted_packets{queue_queue_name=~\"unicast-(0|3)\"}[10s])\n)",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "Transmit at Bottleneck",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Non-Trimmed packets (pps)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "Transmit at Bottleneck"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 17,
+        "y": 10
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "rate(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_trimmed_packets{queue_queue_name=\"unicast-6\"}[30s])",
+          "legendFormat": "Transmit at Bottleneck",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Trimmed packets (pps)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 17
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_dropped_packets{source=\"h6-64o\",queue_queue_name=\"unicast-3\"})\n-\nsum(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_trimmed_packets{source=\"h6-64o\",queue_queue_name=\"unicast-6\"})",
+          "hide": true,
+          "legendFormat": "{{queue_queue_name}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_dropped_packets{source=\"h6-64o\",queue_queue_name=\"unicast-3\"}\n-\nignoring(queue_queue_name)\nqos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_trimmed_packets{source=\"h6-64o\",queue_queue_name=\"unicast-6\"}",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "rate(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_dropped_packets{source=\"h6-64o\",queue_queue_name=\"unicast-3\"}[5m])\n-\nignoring(queue_queue_name)\nrate(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_trimmed_packets{source=\"h6-64o\",queue_queue_name=\"unicast-6\"}[5m])",
+          "hide": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "rate(qos_interfaces_interface_output_queues_queue_queue_statistics_aggregate_statistics_dropped_packets{source=\"h6-64o\",queue_queue_name=\"unicast-3\"}[30s])\n* on(source)\n(qos_packet_trimming_enable_packet_trimming{source=\"h6-64o\"} == bool 0)",
+          "instant": false,
+          "legendFormat": "Dropped at Bottleneck",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "Dropped packets (pps)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 8,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "description": "$Interface Queue depth 1 min average",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 1048576,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "decbits"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 14,
+            "x": 0,
+            "y": 20
+          },
+          "id": 4,
+          "options": {
+            "displayMode": "gradient",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "qos_interfaces_interface_output_queues_queue_queue_depth_average_1{interface_interface_id=\"$Interface\"}",
+              "legendFormat": "{{queue_queue_name}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "$Interface Queue depth ",
+          "type": "bargauge"
+        }
+      ],
+      "title": "statistics",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "unicast-6",
+          "value": "unicast-6"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "telemetry"
+        },
+        "definition": "label_values(queue_queue_name)",
+        "label": "Queue",
+        "name": "Queue",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(queue_queue_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "regexApplyTo": "value",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "ethernet-1/13",
+          "value": "ethernet-1/13"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "telemetry"
+        },
+        "definition": "label_values({source=\"h6-64o\"},interface_name)",
+        "description": "",
+        "label": "Interface",
+        "name": "Interface",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values({source=\"h6-64o\"},interface_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "regexApplyTo": "value",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Packet Trimming",
+  "uid": "g2pjn5",
+  "version": 2,
+  "weekStart": ""
+}

@@ -1,0 +1,13 @@
+# cat /etc/prometheus/rules/alert.rules.yml 
+groups:
+- name: sros_alerts
+  rules:
+  - alert: HostHighNetworkThroughputIngress
+    expr: rate(SROS_port_in_in_octets{source="sros.node.ipd.lab", port_id="1/1/c1/1"}[90s])*8 / 1024 / 1024 / 1024 > 10
+    #expr: rate(SROS_port_in_in_octets[90s])*8 / 1024 / 1024 / 1024 > 10 # For demo purposes we monitor utilization above 10 Gbps
+    for: 5s # For demo purposes we use agressively small timers
+    labels:
+      severity: warning
+    annotations:
+      summary: High ingress bandwidth utilization
+      description: "Source {{ $labels.source }} high ingress bandwidth utilization for port {{ $labels.port_id }}: {{ $value }} Gbps"

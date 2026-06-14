@@ -1,0 +1,5691 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations \u0026 Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 39,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 83,
+      "panels": [
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 1
+          },
+          "id": 84,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 IGP Metric Path (default) In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 1
+          },
+          "id": 85,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 IGP Metric Path (default) Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 226
+          },
+          "id": 86,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"1\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 226
+          },
+          "id": 87,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"1\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 231
+          },
+          "id": 88,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 128 Delay / In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 231
+          },
+          "id": 72,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 128 Delay / Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 233
+          },
+          "id": 94,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"2\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 233
+          },
+          "id": 95,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"2\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 238
+          },
+          "id": 90,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 129 TE-Metric / In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 238
+          },
+          "id": 76,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 129 TE-Metric / Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 240
+          },
+          "id": 96,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"3\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 240
+          },
+          "id": 97,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"3\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 245
+          },
+          "id": 92,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 130 Admin Group / In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 245
+          },
+          "id": 93,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 130 Admin Group / Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 247
+          },
+          "id": 98,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"4\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 247
+          },
+          "id": 99,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1-32d\",interface_name=\"ethernet-1/32\",subinterface_index=\"4\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        }
+      ],
+      "title": "SRv6 7730 SXR-1-32d \u0026 7250 IXR-e3x",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 66,
+      "panels": [
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 2
+          },
+          "id": 67,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 IGP Metric Path (default) In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 2
+          },
+          "id": 68,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 IGP Metric Path (default) Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 199
+          },
+          "id": 69,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"1\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 199
+          },
+          "id": 70,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"1\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic - Default",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 204
+          },
+          "id": 71,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 128 Delay / In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 204
+          },
+          "id": 89,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 128 Delay / Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 206
+          },
+          "id": 73,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"2\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic Flex-Algo 128",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 206
+          },
+          "id": 74,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"2\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic Flex-Algo 128",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 211
+          },
+          "id": 75,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 129 TE-Metric / In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 211
+          },
+          "id": 91,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 129 TE-Metric / Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 213
+          },
+          "id": 77,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"3\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic Flex-Algo 129",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 213
+          },
+          "id": 78,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"3\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic Flex-Algo 129",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 218
+          },
+          "id": 80,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 130 Admin Group / In-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 218
+          },
+          "id": 81,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eSRv6 Flex-Algo 130 Admin Group / Out-Rate\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 220
+          },
+          "id": 79,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_in_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"4\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Ingress Traffic Flex-Algo 130",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 220
+          },
+          "id": 82,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(interface_subinterface_statistics_out_forwarded_octets{source=\"7730-sxr-1x-44s\",interface_name=\"ethernet-1/22\",subinterface_index=\"4\"}[10m]) * 8",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_replace}} Egress Traffic Flex-Algo 130",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        }
+      ],
+      "title": "SRv6 7730 SXR-1x-44S \u0026 7250 IXR-e3x",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 37,
+      "panels": [
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 3
+          },
+          "id": 25,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eIPv4 routes - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 3
+          },
+          "id": 26,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eMPLS/BGP tunnels - Timeline\u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "orange",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "Number of IPv4 routes",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "min": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-red",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 66
+          },
+          "id": 10,
+          "options": {
+            "legend": {
+              "calcs": ["lastNotNull"],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(network_instance_route_table_ipv4_unicast_route_summary_route_type_active_routes{network_instance_name=~\"default|vprn100|vprn200|vprn300|vprn400|vprn500\",source=\"7730-sxr-r6d\"})",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{Number of IPv4 routes}} IPv4 routes",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "Number of MPLS/BGP tunnels",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": true,
+              "mappings": [],
+              "max": 70000,
+              "min": 0,
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-purple",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 66
+          },
+          "id": 18,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(network_instance_tunnel_table_ipv4_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-r6d\",network_instance_name=\"default\",tunnel_type_type=~\"bgp|ldp\"})",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{Number of MPLS/BGP tunnels}} Tunnels total number",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 74
+          },
+          "id": 27,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eIPv6 routes - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n\r\n\r\n",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 74
+          },
+          "id": 28,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTunnels by type\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds",
+                "seriesBy": "last"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "Number of IPv6 routes",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": true,
+              "mappings": [],
+              "min": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-orange",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 76
+          },
+          "id": 16,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum(network_instance_route_table_ipv6_unicast_route_summary_route_type_active_routes{network_instance_name=~\"default|vprn100|vprn200|vprn300|vprn400|vprn500\",source=\"7730-sxr-r6d\"})",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{Number of IPv6 routes}} IPv6 routes",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-BlPu"
+              },
+              "fieldMinMax": true,
+              "mappings": [],
+              "max": 40000,
+              "min": 0,
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-purple",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 76
+          },
+          "id": 24,
+          "options": {
+            "displayMode": "gradient",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "network_instance_tunnel_table_ipv4_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-r6d\",network_instance_name=\"default\",tunnel_type_type=~\"ldp\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "LDP",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": true,
+              "expr": "network_instance_tunnel_table_ipv4_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-r6d\",network_instance_name=\"default\",tunnel_type_type=~\"bgp\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "BGP",
+              "range": true,
+              "refId": "B",
+              "useBackend": false
+            }
+          ],
+          "type": "bargauge"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 84
+          },
+          "id": 29,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eXDP used resources\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 84
+          },
+          "id": 30,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003ePercentage of XDP used resources\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-blue",
+                "mode": "thresholds"
+              },
+              "fieldMinMax": true,
+              "mappings": [],
+              "min": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 86
+          },
+          "id": 17,
+          "options": {
+            "displayMode": "gradient",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"ip-lpm-routes\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "used-{{resource_name}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"indirect-ip-next-hops\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "used-{{resource_name}}",
+              "range": true,
+              "refId": "B",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"ecmp-groups\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "used-{{resource_name}}",
+              "range": true,
+              "refId": "C",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"mpls-incoming-labels\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "used-{{resource_name}}",
+              "range": true,
+              "refId": "D",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"originating-tunnels\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "used-{{resource_name}}",
+              "range": true,
+              "refId": "E",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"tunnel-next-hops\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "used-{{resource_name}}",
+              "range": true,
+              "refId": "F",
+              "useBackend": false
+            }
+          ],
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-green",
+                    "value": 0
+                  },
+                  {
+                    "color": "dark-red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 86
+          },
+          "id": 21,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=~\"ip-lpm-routes\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_name}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"indirect-ip-next-hops\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_name}}",
+              "range": true,
+              "refId": "B",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"ecmp-groups\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_name}}",
+              "range": true,
+              "refId": "C",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"mpls-incoming-labels\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_name}}",
+              "range": true,
+              "refId": "D",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"originating-tunnels\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_name}}",
+              "range": true,
+              "refId": "E",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"tunnel-next-hops\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{resource_name}}",
+              "range": true,
+              "refId": "F",
+              "useBackend": false
+            }
+          ],
+          "type": "gauge"
+        }
+      ],
+      "title": "MPLS setup -  Datapath resources",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 100,
+      "panels": [],
+      "title": "SRv6 setup -  Datapath resources",
+      "type": "row"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "id": 107,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eXDP used resources\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "id": 108,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003ePercentage of XDP used resources\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-blue",
+            "mode": "thresholds"
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "min": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-blue",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
+      "id": 103,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"ip-lpm-routes\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "used-{{resource_name}}",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"indirect-ip-next-hops\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "used-{{resource_name}}",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"ecmp-groups\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "used-{{resource_name}}",
+          "range": true,
+          "refId": "C",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"mpls-incoming-labels\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "used-{{resource_name}}",
+          "range": true,
+          "refId": "D",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"originating-tunnels\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "used-{{resource_name}}",
+          "range": true,
+          "refId": "E",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_entries{resource_name=\"tunnel-next-hops\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "used-{{resource_name}}",
+          "range": true,
+          "refId": "F",
+          "useBackend": false
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "dark-red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "id": 102,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=~\"ip-lpm-routes\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{resource_name}}",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"indirect-ip-next-hops\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{resource_name}}",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"ecmp-groups\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{resource_name}}",
+          "range": true,
+          "refId": "C",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"mpls-incoming-labels\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{resource_name}}",
+          "range": true,
+          "refId": "D",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"originating-tunnels\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{resource_name}}",
+          "range": true,
+          "refId": "E",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_linecard_forwarding_complex_datapath_xdp_resource_used_percent{resource_name=\"tunnel-next-hops\",source=\"7730-sxr-1x-44s\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{resource_name}}",
+          "range": true,
+          "refId": "F",
+          "useBackend": false
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "id": 111,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eIPv4 routes - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "id": 112,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eMPLS/BGP tunnels - Timeline\u003c/p\u003e\r\n\u003c/div\u003e\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "orange",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of IPv4 routes",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-red",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 101,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(network_instance_route_table_ipv4_unicast_route_summary_route_type_active_routes{network_instance_name=~\"default|vprn100|vprn200|vprn300|vprn400|vprn500\",source=\"7730-sxr-1x-44s\"})",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{Number of IPv4 routes}} IPv4 routes",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of MPLS/BGP tunnels",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "max": 70000,
+          "min": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-purple",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 106,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "network_instance_tunnel_table_ipv6_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-1x-44s\",network_instance_name=\"default\",tunnel_type_type=~\"srv6-isis\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{Number of MPLS/BGP tunnels}} Tunnels total number",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 110,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eIPv6 routes - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e\r\n\r\n\r\n",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 109,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTunnels by type\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of IPv6 routes",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "min": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-orange",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 104,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(network_instance_route_table_ipv6_unicast_route_summary_route_type_active_routes{network_instance_name=~\"default|vprn100|vprn200|vprn300|vprn400|vprn500\",source=\"7730-sxr-1x-44s\"})",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{Number of IPv6 routes}} IPv6 routes",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlPu"
+          },
+          "fieldMinMax": true,
+          "mappings": [],
+          "max": 40000,
+          "min": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-purple",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 105,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "network_instance_tunnel_table_ipv4_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-1x-44s\",network_instance_name=\"default\",tunnel_type_type=~\"ldp\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "LDP",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "network_instance_tunnel_table_ipv4_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-1x-44s\",network_instance_name=\"default\",tunnel_type_type=~\"bgp\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "BGP",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "network_instance_tunnel_table_ipv6_tunnel_summary_tunnel_type_active_tunnels{source=\"7730-sxr-1x-44s\",network_instance_name=\"default\",tunnel_type_type=~\"srv6-isis\"}",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 34
+      },
+      "id": 32,
+      "panels": [
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 6,
+            "x": 0,
+            "y": 35
+          },
+          "id": 47,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTCAM IPv4 entriess\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 6,
+            "x": 6,
+            "y": 35
+          },
+          "id": 48,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTCAM IPv4 used %\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 6,
+            "x": 12,
+            "y": 35
+          },
+          "id": 52,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTCAM IPv6 entriess\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 6,
+            "x": 18,
+            "y": 35
+          },
+          "id": 51,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTCAM IPv6 used %\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "12.4.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-blue",
+                "mode": "thresholds"
+              },
+              "fieldMinMax": true,
+              "mappings": [],
+              "min": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-orange",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 0,
+            "y": 57
+          },
+          "id": 49,
+          "options": {
+            "displayMode": "gradient",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_tcam_resource_programmed{resource_name=\"if-input-ipv4\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "Programmed TCAM IPv4",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_tcam_resource_free_static{resource_name=\"if-input-ipv4\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "Free TCAM IPv4",
+              "range": true,
+              "refId": "B",
+              "useBackend": false
+            }
+          ],
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-orange",
+                    "value": 0
+                  },
+                  {
+                    "color": "dark-red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 6,
+            "y": 57
+          },
+          "id": 50,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "(platform_linecard_forwarding_complex_tcam_resource_programmed{resource_name=\"if-input-ipv4\",source=\"7730-sxr-r6d\"})/300",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "TCAM IPv4",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-blue",
+                "mode": "thresholds"
+              },
+              "fieldMinMax": true,
+              "mappings": [],
+              "min": 100,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 12,
+            "y": 57
+          },
+          "id": 53,
+          "options": {
+            "displayMode": "gradient",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_tcam_resource_programmed{resource_name=\"if-input-ipv6\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "Programmed TCAM IPv6",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_linecard_forwarding_complex_tcam_resource_free_static{resource_name=\"if-input-ipv6\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "Free TCAM IPv6",
+              "range": true,
+              "refId": "B",
+              "useBackend": false
+            }
+          ],
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": 0
+                  },
+                  {
+                    "color": "dark-red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 57
+          },
+          "id": 54,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "(platform_linecard_forwarding_complex_tcam_resource_programmed{resource_name=\"if-input-ipv6\",source=\"7730-sxr-r6d\"})/150",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "TCAM IPv6",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "gauge"
+        }
+      ],
+      "title": "ACL \u0026 TCAM",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 31,
+      "panels": [],
+      "title": "CPM - CPU \u0026 Memory",
+      "type": "row"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 40,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eCPU Utilisation (%)\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 44,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eCPU Utilisation - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-yellow",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 38
+      },
+      "id": 39,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_control_cpu_total_instant{source=\"7730-sxr-r6d\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-yellow",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 38
+      },
+      "id": 113,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_control_cpu_total_instant{source=\"7730-sxr-r6d\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 0,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-yellow",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 11,
+        "x": 12,
+        "y": 38
+      },
+      "id": 42,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "platform_control_cpu_total_instant{source=\"7730-sxr-r6d\"}",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{label_replace}} CPU utilization",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 0,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-yellow",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 11,
+        "x": 12,
+        "y": 42
+      },
+      "id": 114,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "platform_control_cpu_total_instant{source=\"7730-sxr-r6d\"}",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{label_replace}} CPU utilization",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 46
+      },
+      "id": 43,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eCPM Memory Utilisation %\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 46
+      },
+      "id": 41,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 100%; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eCPM Memory Utilisation - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 48
+      },
+      "id": 45,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_control_memory_utilization{source=\"7730-sxr-r6d\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 0,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 48
+      },
+      "id": 46,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "platform_control_memory_utilization{source=\"7730-sxr-r6d\"}",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{label_replace}} CPM memory utilization",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "id": 19,
+      "panels": [
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 0,
+            "y": 736
+          },
+          "id": 55,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTemperature (C)\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "10.3.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 736
+          },
+          "id": 56,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTemperature (C) - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "10.3.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "blue"
+                  },
+                  {
+                    "color": "red",
+                    "value": 75
+                  }
+                ]
+              },
+              "unit": "celsius",
+              "unitScale": true
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 738
+          },
+          "id": 57,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "10.3.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_control_temperature_instant{source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 0,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "blue"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "celsius",
+              "unitScale": true
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 738
+          },
+          "id": 58,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.6.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "platform_control_temperature_instant{source=\"7730-sxr-r6d\"}",
+              "format": "time_series",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{label_replace}} Temperature",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 11,
+            "x": 0,
+            "y": 746
+          },
+          "id": 63,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eFan Unit Rotation Speed (%)\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "10.3.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "gridPos": {
+            "h": 2,
+            "w": 12,
+            "x": 12,
+            "y": 746
+          },
+          "id": 60,
+          "options": {
+            "code": {
+              "language": "html",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eFan Unit Rotation Speed  - Timeline\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+            "mode": "html"
+          },
+          "pluginVersion": "10.3.3",
+          "transparent": true,
+          "type": "text"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent",
+              "unitScale": true
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 748
+          },
+          "id": 64,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "10.3.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "platform_fan_tray_fan_speed{fan_tray_id=\"1\",source=\"7730-sxr-r6d\"}",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "Fan Tray 1",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "editorMode": "code",
+              "expr": "platform_fan_tray_fan_speed{fan_tray_id=\"2\",source=\"7730-sxr-r6d\"}",
+              "instant": false,
+              "legendFormat": "Fan tray 2",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "dark-yellow",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 100,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 0,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent",
+              "unitScale": true
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 748
+          },
+          "id": 65,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.6.2",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "platform_fan_tray_fan_speed{fan_tray_id=\"1\",source=\"7730-sxr-r6d\"}",
+              "format": "time_series",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{label_replace}} Temperature",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "type": "timeseries"
+        }
+      ],
+      "title": "Environment",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 57
+      },
+      "id": 33,
+      "panels": [],
+      "title": "Traffic timelines",
+      "type": "row"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 58
+      },
+      "id": 34,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eIngress traffic (Gbps)\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 58
+      },
+      "id": 35,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eTotal traffic - Full Duplex (Gbps)\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "min": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-yellow",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "Gibits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 60
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(avg_over_time(interface_traffic_rate_in_bps{source=\"7730-sxr-r6d\",interface_name=~\"ethernet-1/m[4-6]/[1-5]\"}[360])) /1e9",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{Ingress Traffic}} Ingress Traffic",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "Gibits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 60
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "( sum(avg_over_time(interface_traffic_rate_in_bps{source=\"7730-sxr-r6d\",interface_name=~\"ethernet-1/m[4-6]/[1-5]\"}[360])) +sum(avg_over_time(interface_traffic_rate_out_bps{source=\"7730-sxr-r6d\",interface_name=~\"ethernet-1/m[4-6]/[1-5]\"}[360]))) /1e9 /2",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{Total Traffic FD}} Full-Duplex Traffic",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 68
+      },
+      "id": 36,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\r\n\u003cdiv style=\"height: 45px; display: flex; flex-direction: column; justify-content: flex-end;\"\u003e\r\n  \u003cp style=\"font-size: 20px; color: #00ffcc; text-align: left; margin: 0;\"\u003eEgress traffic (Gbps)\r\n  \u003c/p\u003e\r\n\u003c/div\u003e",
+        "mode": "html"
+      },
+      "pluginVersion": "12.4.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-yellow",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "Gbits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 70
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum(avg_over_time(interface_traffic_rate_out_bps{interface_name=~\"ethernet-1/m[4-6]/[1-5]\",source=\"7730-sxr-r6d\"}[360])) / 1e9",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{Egress Traffic}} Egress Traffic",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 42,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": ["5s", "10s"]
+  },
+  "timezone": "browser",
+  "title": "SReXperts2026-SXR-EMEA",
+  "uid": "b3fd6f37-eccb-427b-8226-e6b1d90e3403",
+  "version": 31,
+  "weekStart": ""
+}

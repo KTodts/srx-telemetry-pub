@@ -1,0 +1,2431 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations \u0026 Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 22,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 21,
+      "title": "NAT",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 97,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": 20
+              },
+              {
+                "color": "green",
+                "value": 40
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "orange",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 14,
+        "x": 0,
+        "y": 1
+      },
+      "id": 20,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "NIC_key3{job=\"$source\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "NIC",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "Worker_key3{job=\"$source\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Worker",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "Scheduler_key3{job=\"$source\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Scheduler",
+          "range": true,
+          "refId": "F"
+        }
+      ],
+      "title": "vFP Utilization",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "isa_nat_group_mda_resources_flows_value",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "Flows",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 7,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "super-light-blue"
+                  },
+                  {
+                    "color": "#6ED0E0",
+                    "value": 1
+                  },
+                  {
+                    "color": "green",
+                    "value": 10
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 25
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "red",
+                    "value": 100
+                  }
+                ]
+              },
+              "unit": "bps",
+              "unitScale": true
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 14,
+            "w": 8,
+            "x": 0,
+            "y": 90
+          },
+          "id": 2,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.3.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "(port_ethernet_statistics_in_utilization{source=\"$source\", interface_name=~\"$interface\"} * 100) * port_ethernet_oper_speed{interface_name=~\"$interface\", source=\"$source\"}",
+              "format": "time_series",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "In: $source -\u003e {{interface_name}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "interface_traffic_rate_in_bps{source=\"$source\", interface_name=~\"$interface\"}",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "In: $source -\u003e {{interface_name}}",
+              "range": true,
+              "refId": "C",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "irate(port_ethernet_statistics_in_octets{source=\"$source\", interface_name=~\"$interface\"}[$__rate_interval])*8",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "interval": "10s",
+              "legendFormat": "In: $source -\u003e {{interface_name}}",
+              "range": true,
+              "refId": "F",
+              "useBackend": false
+            }
+          ],
+          "title": "Traffic Ingress -\u003e $source ",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "super-light-blue"
+                  },
+                  {
+                    "color": "#6ED0E0",
+                    "value": 1
+                  },
+                  {
+                    "color": "green",
+                    "value": 10
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 25
+                  },
+                  {
+                    "color": "orange",
+                    "value": 50
+                  },
+                  {
+                    "color": "red",
+                    "value": 100
+                  }
+                ]
+              },
+              "unit": "bps",
+              "unitScale": true
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 14,
+            "w": 8,
+            "x": 8,
+            "y": 90
+          },
+          "id": 11,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.3.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "editorMode": "code",
+              "expr": "port_ethernet_statistics_out_utilization{source=\"$source\", interface_name=~\"$interface\"} * port_ethernet_oper_speed{interface_name=~\"$interface\", source=\"$source\"}* 100",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "Out: $source -\u003e {{interface_name}}",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "interface_traffic_rate_out_bps{source=\"$source\", interface_name=~\"$interface\"}",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "Out: $source -\u003e {{interface_name}}",
+              "range": true,
+              "refId": "D",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "telemetry"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "irate(port_ethernet_statistics_out_octets{source=\"$source\", interface_name=~\"$interface\"}[$__rate_interval])*8",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "interval": "10s",
+              "legendFormat": "Out: $source -\u003e {{interface_name}}",
+              "range": true,
+              "refId": "G",
+              "useBackend": false
+            }
+          ],
+          "title": "Traffic Egress -\u003e $source ",
+          "type": "stat"
+        }
+      ],
+      "title": "Interfaces",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 17,
+      "panels": [],
+      "title": "Aggregate Interfaces",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "super-light-blue",
+                "value": null
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 1
+              },
+              {
+                "color": "green",
+                "value": 10
+              },
+              {
+                "color": "yellow",
+                "value": 25
+              },
+              {
+                "color": "orange",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "bps",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 8,
+        "x": 0,
+        "y": 19
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(port_ethernet_statistics_out_utilization{source=\"$source\", interface_name=~\"$interface\"} * port_ethernet_oper_speed{interface_name=~\"$interface\", source=\"$source\"}* 100)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Out: $source -\u003e {{interface_name}}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(interface_traffic_rate_out_bps{source=\"$source\", interface_name=~\"$interface\"})",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "Out: $source -\u003e {{interface_name}}",
+          "range": true,
+          "refId": "D",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_out_octets{source=\"$source\", interface_name=~\"$interface\"}[$__rate_interval])*8)",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "10s",
+          "legendFormat": "Out: $source -\u003e {{interface_name}}",
+          "range": true,
+          "refId": "G",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(port_ethernet_statistics_in_utilization{source=\"$source\", interface_name=~\"$interface\"} * port_ethernet_oper_speed{interface_name=~\"$interface\", source=\"$source\"}* 100)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "In: $source -\u003e {{interface_name}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(interface_traffic_rate_in_bps{source=\"$source\", interface_name=~\"$interface\"})",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "In: $source -\u003e {{interface_name}}",
+          "range": true,
+          "refId": "C",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_in_octets{source=\"$source\", interface_name=~\"$interface\"}[$__rate_interval])*8)",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "10s",
+          "legendFormat": "In: $source -\u003e {{interface_name}}",
+          "range": true,
+          "refId": "E",
+          "useBackend": false
+        }
+      ],
+      "title": "Aggregate Rate -\u003e $source ",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "flowchartsData": {
+        "allowDrawio": true,
+        "editorTheme": "kennedy",
+        "editorUrl": "https://embed.diagrams.net/",
+        "flowcharts": [
+          {
+            "center": true,
+            "csv": "",
+            "download": false,
+            "enableAnim": true,
+            "grid": false,
+            "lock": true,
+            "name": "Main",
+            "scale": true,
+            "tooltip": true,
+            "type": "xml",
+            "url": "http://\u003cYourUrl\u003e/\u003cYour XML/drawio file/api\u003e",
+            "xml": "\u003cmxGraphModel dx=\"-11670\" dy=\"-2518\" grid=\"1\" gridSize=\"10\" guides=\"1\" tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"850\" pageHeight=\"1100\" math=\"0\" shadow=\"0\"\u003e\n  \u003croot\u003e\n    \u003cmxCell id=\"0\" /\u003e\n    \u003cmxCell id=\"1\" style=\"\" parent=\"0\" /\u003e\n    \u003cmxCell id=\"P3U1fS0c9CsTaoFvcbp7-18\" value=\"\" style=\"verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=mxgraph.basic.rect;fillColor2=none;strokeWidth=1;size=20;indent=5;fontSize=8;fontColor=#FFCC99;fillColor=#CCCCCC;labelPosition=center;align=center;strokeColor=none;\" parent=\"1\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12920\" y=\"3930\" width=\"620\" height=\"500\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"P3U1fS0c9CsTaoFvcbp7-17\" value=\"Main\" parent=\"0\" /\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-3\" value=\"\" style=\"rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13040\" y=\"3940\" width=\"490\" height=\"480\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-7\" value=\"\" style=\"rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#b1ddf0;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"13040.17\" y=\"4221\" width=\"69.83\" height=\"143.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-6\" value=\"\" style=\"rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#b1ddf0;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"13040.17\" y=\"4030\" width=\"69.83\" height=\"143.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"P3U1fS0c9CsTaoFvcbp7-80\" value=\"\" style=\"rounded=0;whiteSpace=wrap;html=1;fontSize=7;fillColor=none;verticalAlign=top;strokeWidth=1;strokeColor=#FFFFFF;dashed=1;labelBackgroundColor=default;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13230\" y=\"4150\" width=\"250\" height=\"250\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"P3U1fS0c9CsTaoFvcbp7-49\" value=\"\" style=\"shape=image;aspect=fixed;image=data:image/png,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;fontColor=#005aff;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13230\" y=\"4150\" width=\"250\" height=\"250\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"P3U1fS0c9CsTaoFvcbp7-52\" value=\"cVSR\" style=\"text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=bottom;whiteSpace=wrap;rounded=0;labelBackgroundColor=#0066CC;fontSize=40;fontColor=#FFFFFF;labelBorderColor=#0066CC;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13290\" y=\"4260\" width=\"128\" height=\"49.5\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-2\" value=\"\" style=\"sketch=0;html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];verticalLabelPosition=bottom;align=center;verticalAlign=top;shape=mxgraph.kubernetes.icon;prIcon=pod\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13440\" y=\"4130\" width=\"50\" height=\"48\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-4\" value=\"\u0026lt;font style=\u0026quot;font-size: 20px;\u0026quot;\u0026gt;Worker Node\u0026lt;/font\u0026gt;\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13370\" y=\"3960\" width=\"60\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-5\" value=\"Kubernetes\" style=\"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjcwMi44NDYzMTM0NzY1NjI1IiBoZWlnaHQ9IjY4MS45NjcxMDIwNTA3ODEyIiB2aWV3Qm94PSIxMC4wMDEwMjYxNTM1NjQ0NTMgMTAuMDAwOTMzNjQ3MTU1NzYyIDcwMi44NDYzMTM0NzY1NjI1IDY4MS45NjcxMDIwNTA3ODEyIj4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojMzI2Y2U1O30mI3hhOwkuc3Qxe2ZpbGw6I2ZmZjt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzU4Ljk4NyAxMC4wNmMtNi4yMTMuMzEzLTEyLjMwMSAxLjg1NC0xNy45MDYgNC41MzFMOTYuNzM3IDEzMS4zNDJjLTEyLjgxMSA2LjExOC0yMi4xMTYgMTcuNjg5LTI1LjI4MSAzMS40MzhsLTYwLjI4MSAyNjIuMjVjLTIuODEyIDEyLjIwNy0uNTI0IDI1LjAyNCA2LjM0NCAzNS41MzFhNDYuMzUgNDYuMzUgMCAwIDAgMi42NTYgMy42ODhsMTY5LjEyNSAyMTAuMjgxYzguODY4IDExLjAyMiAyMi4zMTMgMTcuNDQgMzYuNTMxIDE3LjQzOGwyNzEuMjE5LS4wNjJjMTQuMjEyLjAxIDI3LjY1Ny02LjM5NiAzNi41MzEtMTcuNDA2bDE2OS4wNjMtMjEwLjMxM2M4Ljg3My0xMS4wMjggMTIuMTk3LTI1LjQ2NCA5LjAzMS0zOS4yMTlsLTYwLjM3NS0yNjIuMjVjLTMuMTY1LTEzLjc0OC0xMi40Ny0yNS4zMTktMjUuMjgxLTMxLjQzN0wzODEuNjQzIDE0LjU5MmMtNy4wNS0zLjM2OC0xNC44NDEtNC45MjYtMjIuNjU2LTQuNTMxeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEgc3QyIiBkPSJNMzYxLjQwOCA5OS4zMDhjLTguMDc3LjAwMS0xNC42MjYgNy4yNzYtMTQuNjI1IDE2LjI1IDAgLjEzOC4wMjguMjY5LjAzMS40MDYtLjAxMiAxLjIxOS0uMDcxIDIuNjg4LS4wMzEgMy43NS4xOTMgNS4xNzYgMS4zMjEgOS4xMzcgMiAxMy45MDYgMS4yMyAxMC4yMDcgMi4yNjEgMTguNjY3IDEuNjI1IDI2LjUzMS0uNjE5IDIuOTY1LTIuODAzIDUuNjc3LTQuNzUgNy41NjNsLS4zNDQgNi4xODhjLTguNzc3LjcyNy0xNy42MTIgMi4wNTktMjYuNDM3IDQuMDYzLTM3Ljk3NSA4LjYyMi03MC42NyAyOC4xODMtOTUuNTYyIDU0LjU5NC0xLjYxNS0xLjEwMi00LjQ0MS0zLjEyOS01LjI4MS0zLjc1LTIuNjExLjM1My01LjI1IDEuMTU4LTguNjg3LS44NDQtNi41NDUtNC40MDYtMTIuNTA2LTEwLjQ4Ny0xOS43MTktMTcuODEyLTMuMzA1LTMuNTA0LTUuNjk4LTYuODQxLTkuNjI1LTEwLjIxOS0uODkyLS43NjctMi4yNTMtMS44MDUtMy4yNS0yLjU5NC0zLjA3LTIuNDQ4LTYuNjkxLTMuNzI0LTEwLjE4Ny0zLjg0NC00LjQ5Ni0uMTU0LTguODI0IDEuNjA0LTExLjY1NiA1LjE1Ni01LjAzNSA2LjMxNS0zLjQyMyAxNS45NjggMy41OTQgMjEuNTYzLjA3MS4wNTcuMTQ3LjEwMS4yMTkuMTU2Ljk2NC43ODIgMi4xNDUgMS43ODMgMy4wMzEgMi40MzggNC4xNjcgMy4wNzcgNy45NzMgNC42NTEgMTIuMTI1IDcuMDk0IDguNzQ3IDUuNDAyIDE1Ljk5OCA5Ljg4MSAyMS43NSAxNS4yODEgMi4yNDYgMi4zOTQgMi42MzkgNi42MTMgMi45MzggOC40MzhsNC42ODggNC4xODhjLTI1LjA5MyAzNy43NjQtMzYuNzA3IDg0LjQwOS0yOS44NDQgMTMxLjkzOGwtNi4xMjUgMS43ODFjLTEuNjE0IDIuMDg1LTMuODk1IDUuMzY1LTYuMjgxIDYuMzQ0LTcuNTI1IDIuMzctMTUuOTk0IDMuMjQxLTI2LjIxOSA0LjMxMy00LjguMzk5LTguOTQyLjE2MS0xNC4wMzEgMS4xMjUtMS4xMi4yMTItMi42ODEuNjE5LTMuOTA2LjkwNi0uMDQzLjAwOS0uMDgyLjAyMi0uMTI1LjAzMS0uMDY3LjAxNS0uMTU1LjA0OC0uMjE5LjA2My04LjYyIDIuMDgzLTE0LjE1OCAxMC4wMDYtMTIuMzc1IDE3LjgxM3MxMC4yMDMgMTIuNTU3IDE4Ljg3NSAxMC42ODhjLjA2My0uMDE0LjE1NC0uMDE3LjIxOS0uMDMxLjA5OC0uMDIyLjE4NC0uMDcuMjgxLS4wOTQgMS4yMDktLjI2NSAyLjcyNC0uNTYxIDMuNzgxLS44NDQgNS4wMDMtMS4zNCA4LjYyNy0zLjMwOCAxMy4xMjUtNS4wMzEgOS42NzctMy40NzEgMTcuNjkyLTYuMzcgMjUuNS03LjUgMy4yNjEtLjI1NSA2LjY5NyAyLjAxMiA4LjQwNiAyLjk2OWw2LjM3NS0xLjA5NGMxNC42NyA0NS40ODMgNDUuNDE0IDgyLjI0NSA4NC4zNDQgMTA1LjMxMmwtMi42NTYgNi4zNzVjLjk1NyAyLjQ3NSAyLjAxMyA1LjgyNSAxLjMgOC4yNjktMi44MzkgNy4zNjEtNy43MDEgMTUuMTMxLTEzLjIzOCAyMy43OTMtMi42ODEgNC4wMDItNS40MjUgNy4xMDgtNy44NDQgMTEuNjg4LS41NzkgMS4wOTYtMS4zMTYgMi43NzktMS44NzUgMy45MzgtMy43NTkgOC4wNDItMS4wMDIgMTcuMzA1IDYuMjE5IDIwLjc4MSA3LjI2NiAzLjQ5OCAxNi4yODQtLjE5MSAyMC4xODctOC4yNS4wMDYtLjAxMS4wMjYtLjAyLjAzMS0uMDMxcy0uMDA0LS4wMjMgMC0uMDMxYy41NTYtMS4xNDMgMS4zNDQtMi42NDQgMS44MTMtMy43MTkgMi4wNzItNC43NDcgMi43NjItOC44MTUgNC4yMTktMTMuNDA2IDMuODctOS43MiA1Ljk5Ni0xOS45MTkgMTEuMzIzLTI2LjI3NCAxLjQ1OS0xLjc0IDMuODM3LTIuNDA5IDYuMzAyLTMuMDdsMy4zMTMtNmMzMy45MzggMTMuMDI3IDcxLjkyNyAxNi41MjIgMTA5Ljg3NSA3LjkwNmExODkuNzcgMTg5Ljc3IDAgMCAwIDI1LjA5NC03LjU2MmwzLjEyNSA1LjYyNWMyLjUwNi44MTUgNS4yNCAxLjIzNiA3LjQ2OSA0LjUzMSAzLjk4NSA2LjgwOSA2LjcxMSAxNC44NjQgMTAuMDMxIDI0LjU5NCAxLjQ1NyA0LjU5MSAyLjE3OCA4LjY1OSA0LjI1IDEzLjQwNi40NzIgMS4wODIgMS4yNTYgMi42MDUgMS44MTMgMy43NSAzLjg5NSA4LjA4NSAxMi45NDIgMTEuNzg3IDIwLjIxOSA4LjI4MSA3LjIxOS0zLjQ3OCA5Ljk4LTEyLjc0IDYuMjE5LTIwLjc4MWwtMS45MDYtMy45MzdjLTIuNDE5LTQuNTgtNS4xNjMtNy42NTQtNy44NDQtMTEuNjU2LTUuNTM3LTguNjYyLTEwLjEzLTE1Ljg1OC0xMi45NjktMjMuMjE5LTEuMTg3LTMuNzk3LjItNi4xNTggMS4xMjUtOC42MjUtLjU1NC0uNjM1LTEuNzM5LTQuMjItMi40MzctNS45MDYgNDAuNDU3LTIzLjg4OCA3MC4yOTktNjIuMDIxIDg0LjMxMy0xMDYuMDYyIDEuODkyLjI5NyA1LjE4Mi44NzkgNi4yNSAxLjA5NCAyLjItMS40NTEgNC4yMjItMy4zNDQgOC4xODgtMy4wMzEgNy44MDggMS4xMjkgMTUuODIzIDQuMDMgMjUuNSA3LjUgNC40OTggMS43MjMgOC4xMjIgMy43MjMgMTMuMTI1IDUuMDYzIDEuMDU3LjI4MyAyLjU3Mi41NDcgMy43ODEuODEzLjA5Ny4wMjQuMTgzLjA3MS4yODEuMDk0LjA2NS4wMTUuMTU2LjAxNy4yMTkuMDMxIDguNjcyIDEuODY3IDE3LjA5NC0yLjg3OSAxOC44NzUtMTAuNjg3cy0zLjc1NC0xNS43MzItMTIuMzc1LTE3LjgxMmMtMS4yNTQtLjI4NS0zLjAzMi0uNzY5LTQuMjUtMS01LjA4OS0uOTY0LTkuMjMxLS43MjYtMTQuMDMxLTEuMTI1LTEwLjIyNS0xLjA3MS0xOC42OTMtMS45NDMtMjYuMjE5LTQuMzEyLTMuMDY4LTEuMTktNS4yNTEtNC44NDEtNi4zMTMtNi4zNDRsLTUuOTA2LTEuNzE5YzMuMDYyLTIyLjE1NCAyLjIzNy00NS4yMTEtMy4wNjItNjguMjgxLTUuMzQ4LTIzLjI4NS0xNC44LTQ0LjU4MS0yNy40MDYtNjMuMzQ0bDUuMTg4LTQuNjU2Yy4yMzctMi42MjQuMDMzLTUuMzc2IDIuNzUtOC4yODEgNS43NTEtNS40MDEgMTMuMDAzLTkuODc5IDIxLjc1LTE1LjI4MSA0LjE1Mi0yLjQ0MyA3Ljk5LTQuMDE3IDEyLjE1Ni03LjA5NC45NDItLjY5NiAyLjIyOS0xLjc5OCAzLjIxOS0yLjU5NCA3LjAxNS01LjU5NiA4LjYzMS0xNS4yNDggMy41OTQtMjEuNTYycy0xNC43OTctNi45MDktMjEuODEyLTEuMzEyYy0uOTk5Ljc5MS0yLjM1NCAxLjgyMy0zLjI1IDIuNTk0LTMuOTI3IDMuMzc4LTYuMzUxIDYuNzE0LTkuNjU2IDEwLjIxOS03LjIxMiA3LjMyNi0xMy4xNzQgMTMuNDM4LTE5LjcxOSAxNy44NDQtMi44MzYgMS42NTEtNi45OSAxLjA4LTguODc1Ljk2OWwtNS41NjIgMy45NjljLTMxLjcxOS0zMy4yNjEtNzQuOTA1LTU0LjUyNS0xMjEuNDA2LTU4LjY1NmwtLjM0NC02LjUzMWMtMS45MDQtMS44MjItNC4yMDMtMy4zNzctNC43ODEtNy4zMTItLjYzNi03Ljg2NC40MjYtMTYuMzI1IDEuNjU2LTI2LjUzMS42NzktNC43NjkgMS44MDctOC43MyAyLTEzLjkwNi4wNDQtMS4xNzctLjAyNi0yLjg4NC0uMDMxLTQuMTU2LS4wMDEtOC45NzQtNi41NDgtMTYuMjUxLTE0LjYyNS0xNi4yNXptLTE4LjMxMiAxMTMuNDM4bC00LjM0NCA3Ni43MTktLjMxMi4xNTZjLS4yOTEgNi44NjMtNS45NCAxMi4zNDQtMTIuODc1IDEyLjM0NGExMi44MiAxMi44MiAwIDAgMS03LjU5NC0yLjQ2OWwtLjEyNS4wNjMtNjIuOTA2LTQ0LjU5NGMxOS4zMzQtMTkuMDExIDQ0LjA2My0zMy4wNiA3Mi41NjItMzkuNTMxIDUuMjA2LTEuMTgyIDEwLjQxLTIuMDU5IDE1LjU5NC0yLjY4N3ptMzYuNjU2IDBjMzMuMjczIDQuMDkyIDY0LjA0NSAxOS4xNTkgODcuNjI1IDQyLjI1bC02Mi41IDQ0LjMxMy0uMjE5LS4wOTRhMTIuOTEgMTIuOTEgMCAwIDEtMTcuNjg3LTIuMzc1Yy0xLjc3MS0yLjIyMS0yLjcwMS00LjgzMi0yLjgxMi03LjQ2OWwtLjA2Mi0uMDMxek0yMzIuMTI2IDI4My42Mmw1Ny40MzcgNTEuMzc1LS4wNjIuMzEzYTEyLjg4IDEyLjg4IDAgMCAxIDEuNjI1IDE3Ljc1IDEyLjg5IDEyLjg5IDAgMCAxLTYuNjg3IDQuNDA2bC0uMDYyLjI1LTczLjYyNSAyMS4yNWMtMy43NDctMzQuMjY1IDQuMzI5LTY3LjU3NCAyMS4zNzUtOTUuMzQ0em0yNTguMTU2LjAzMWM4LjUzNCAxMy44MzMgMTQuOTk3IDI5LjI4MiAxOC44NDQgNDYuMDMxIDMuODAxIDE2LjU0OCA0Ljc1NSAzMy4wNjcgMy4xODggNDkuMDMxbC03NC0yMS4zMTItLjA2Mi0uMzEyYy02LjYyNy0xLjgxMS0xMC42OTktOC41NTItOS4xNTYtMTUuMzEyLjYzMi0yLjc3IDIuMTAyLTUuMTEzIDQuMDk0LTYuODQ0bC0uMDMxLS4xNTYgNTcuMTI1LTUxLjEyNXptLTE0MC42NTYgNTUuMzEzaDIzLjUzMWwxNC42MjUgMTguMjgxLTUuMjUgMjIuODEzLTIxLjEyNSAxMC4xNTYtMjEuMTg3LTEwLjE4Ny01LjI1LTIyLjgxMnptNzUuNDM4IDYyLjU2M2ExMi44MyAxMi44MyAwIDAgMSAyLjk2OS4yMTlsLjEyNS0uMTU2IDc2LjE1NiAxMi44NzVjLTExLjE0NiAzMS4zMTMtMzIuNDczIDU4LjQ0LTYwLjk2OSA3Ni41OTRsLTI5LjU2Mi03MS40MDYuMDk0LS4xMjVjLTIuNzE2LTYuMzEuMDAyLTEzLjcxIDYuMjUtMTYuNzE5IDEuNi0uNzcgMy4yNzEtMS4xOTcgNC45MzgtMS4yODF6bS0xMjcuOTA2LjMxM2ExMi45IDEyLjkgMCAwIDEgMTIuMzc1IDEwLjAzMSAxMi43NyAxMi43NyAwIDAgMS0uNzE5IDcuOTM4bC4yMTkuMjgxLTI5LjI1IDcwLjY4OGMtMjcuMzQ3LTE3LjU0OS00OS4xMjktNDMuODI0LTYwLjc4MS03Ni4wNjJsNzUuNS0xMi44MTIuMTI1LjE1NmMuODQ1LS4xNTUgMS43MDEtLjIzIDIuNTMxLS4yMTl6bTYzLjc4MSAzMC45NjljMi4wMjQtLjA3NCA0LjA3OS4zNDEgNi4wMzEgMS4yODEgMi41NiAxLjIzMyA0LjUzNyAzLjE3MyA1Ljc4MSA1LjVoLjI4MWwzNy4yMTkgNjcuMjVjLTQuODMgMS42MTktOS43OTYgMy4wMDMtMTQuODc1IDQuMTU2LTI4LjQ2NSA2LjQ2My01Ni44MzkgNC41MDUtODIuNTMxLTQuMjVsMzcuMTI1LTY3LjEyNWguMDYzYTEyLjkxIDEyLjkxIDAgMCAxIDEwLjkwNi02LjgxMnoiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIuMjUiLz4mI3hhOzwvc3ZnPg==;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13470\" y=\"3950\" width=\"42\" height=\"40\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-16\" value=\"NUMA 0\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"13040\" y=\"4380\" width=\"60\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-17\" value=\"\" style=\"endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" source=\"QCNzEc30w7tkN0nwfu-Z-4\" target=\"P3U1fS0c9CsTaoFvcbp7-80\" edge=\"1\"\u003e\n      \u003cmxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\"\u003e\n        \u003cmxPoint x=\"13102\" y=\"4269.1543209876545\" as=\"sourcePoint\" /\u003e\n        \u003cmxPoint x=\"13520\" y=\"4200\" as=\"targetPoint\" /\u003e\n      \u003c/mxGeometry\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-18\" value=\"\" style=\"endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" source=\"QCNzEc30w7tkN0nwfu-Z-3\" target=\"P3U1fS0c9CsTaoFvcbp7-49\" edge=\"1\"\u003e\n      \u003cmxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\"\u003e\n        \u003cmxPoint x=\"13102\" y=\"4193.617283950617\" as=\"sourcePoint\" /\u003e\n        \u003cmxPoint x=\"13240\" y=\"4285\" as=\"targetPoint\" /\u003e\n      \u003c/mxGeometry\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-19\" value=\"\" style=\"endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" source=\"QCNzEc30w7tkN0nwfu-Z-2\" target=\"P3U1fS0c9CsTaoFvcbp7-80\" edge=\"1\"\u003e\n      \u003cmxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\"\u003e\n        \u003cmxPoint x=\"13102\" y=\"4109.388888888889\" as=\"sourcePoint\" /\u003e\n        \u003cmxPoint x=\"13240\" y=\"4285\" as=\"targetPoint\" /\u003e\n      \u003c/mxGeometry\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-20\" value=\"\" style=\"endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" source=\"QCNzEc30w7tkN0nwfu-Z-1\" target=\"P3U1fS0c9CsTaoFvcbp7-49\" edge=\"1\"\u003e\n      \u003cmxGeometry width=\"50\" height=\"50\" relative=\"1\" as=\"geometry\"\u003e\n        \u003cmxPoint x=\"13103.155999999999\" y=\"3999.52\" as=\"sourcePoint\" /\u003e\n        \u003cmxPoint x=\"13240\" y=\"4285\" as=\"targetPoint\" /\u003e\n      \u003c/mxGeometry\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-22\" value=\"UP1\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12957.17\" y=\"4102.04\" width=\"91\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-23\" value=\"DOWN1\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12947.17\" y=\"4124.04\" width=\"90\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-24\" value=\"UP0\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12967.17\" y=\"4034.04\" width=\"91\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-25\" value=\"DOWN0\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12947.17\" y=\"4054\" width=\"100\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-26\" value=\"UP2\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12944\" y=\"4225\" width=\"89\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-27\" value=\"DOWN2\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12937\" y=\"4250\" width=\"90\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-28\" value=\"UP3\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12940\" y=\"4292\" width=\"94\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"8DuOwIUV7FzMQN7l0rXj-29\" value=\"DOWN3\" style=\"text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\" vertex=\"1\"\u003e\n      \u003cmxGeometry x=\"12944\" y=\"4322\" width=\"85\" height=\"30\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-1\" value=\"P0\" style=\"sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.devices.nic;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"13030\" y=\"4034\" width=\"70\" height=\"50\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-2\" value=\"P1\" style=\"sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.devices.nic;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"13031\" y=\"4103.04\" width=\"70\" height=\"50\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-3\" value=\"P2\" style=\"sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.devices.nic;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"13030\" y=\"4228\" width=\"70\" height=\"50\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-4\" value=\"P3\" style=\"sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.devices.nic;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"13030\" y=\"4293\" width=\"70\" height=\"50\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-11\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12940\" y=\"4050\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-19\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;rotation=-180;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12948\" y=\"4058\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-20\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12939\" y=\"4115.52\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-21\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;rotation=-180;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12947\" y=\"4123.52\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-24\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12934\" y=\"4240\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-25\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;rotation=-180;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12942\" y=\"4248\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-26\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12932\" y=\"4308\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n    \u003cmxCell id=\"QCNzEc30w7tkN0nwfu-Z-27\" value=\"\" style=\"shape=singleArrow;direction=north;whiteSpace=wrap;html=1;rotation=-180;\" vertex=\"1\" parent=\"P3U1fS0c9CsTaoFvcbp7-17\"\u003e\n      \u003cmxGeometry x=\"12940\" y=\"4316\" width=\"10.17\" height=\"17.04\" as=\"geometry\" /\u003e\n    \u003c/mxCell\u003e\n  \u003c/root\u003e\n\u003c/mxGraphModel\u003e",
+            "zoom": "100%"
+          }
+        ]
+      },
+      "format": "short",
+      "graphId": "flowchart_16",
+      "gridPos": {
+        "h": 14,
+        "w": 9,
+        "x": 8,
+        "y": 19
+      },
+      "id": 16,
+      "rulesData": {
+        "rulesData": [
+          {
+            "aggregation": "current",
+            "alias": "DOWN1",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "DOWN1",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "DOWN1",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 1,
+            "overlayIcon": false,
+            "pattern": "DOWN1",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "DOWN3",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "DOWN3",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "DOWN3",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 2,
+            "overlayIcon": false,
+            "pattern": "DOWN3",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "DOWN2",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "DOWN2",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "DOWN2",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 3,
+            "overlayIcon": false,
+            "pattern": "DOWN2",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "DOWN0",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "DOWN0",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "DOWN0",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 4,
+            "overlayIcon": false,
+            "pattern": "DOWN0",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "UP3",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "UP3",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "UP3",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 5,
+            "overlayIcon": false,
+            "pattern": "UP2",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "UP2",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "UP2",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "UP2",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 6,
+            "overlayIcon": false,
+            "pattern": "UP2",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "UP1",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "UP1",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "UP1",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 7,
+            "overlayIcon": false,
+            "pattern": "UP1",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "UP0",
+            "column": "Time",
+            "dateColumn": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "dateTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "0d"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1d"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": "-1w"
+              }
+            ],
+            "decimals": 2,
+            "gradient": false,
+            "hidden": false,
+            "invert": false,
+            "mappingType": 1,
+            "mapsDat": {
+              "events": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "links": {
+                "dataList": [],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "id",
+                  "metadata": ""
+                }
+              },
+              "shapes": {
+                "dataList": [
+                  {
+                    "colorOn": "a",
+                    "hidden": false,
+                    "pattern": "UP0",
+                    "style": "gradientColor"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              },
+              "texts": {
+                "dataList": [
+                  {
+                    "hidden": false,
+                    "pattern": "UP0",
+                    "textOn": "wmd",
+                    "textPattern": "/.*/",
+                    "textReplace": "content"
+                  }
+                ],
+                "options": {
+                  "enableRegEx": true,
+                  "identByProp": "value",
+                  "metadata": ""
+                }
+              }
+            },
+            "metricType": "serie",
+            "newRule": false,
+            "numberTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "ge",
+                "level": 0
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 50
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "ge",
+                "level": 0,
+                "value": 80
+              }
+            ],
+            "order": 8,
+            "overlayIcon": false,
+            "pattern": "UP0",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "stringTHData": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*/"
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*warning.*/"
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "comparator": "eq",
+                "level": 0,
+                "value": "/.*(success|ok).*/"
+              }
+            ],
+            "tooltip": true,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": true,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "tpMetadata": false,
+            "type": "number",
+            "unit": "bps",
+            "valueData": []
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_in_octets{source=\"$source\", interface_name=~\"1/1/1\"}[$__rate_interval])*8)",
+          "instant": false,
+          "legendFormat": "UP0",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_out_octets{source=\"$source\", interface_name=~\"1/1/1\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "DOWN0",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_in_octets{source=\"$source\", interface_name=~\"1/1/3\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "UP1",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_out_octets{source=\"$source\", interface_name=~\"1/1/3\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "DOWN1",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_in_octets{source=\"$source\", interface_name=~\"1/1/2\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "UP2",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_in_octets{source=\"$source\", interface_name=~\"1/1/2\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "UP3",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_out_octets{source=\"$source\", interface_name=~\"1/1/4\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "DOWN2",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "sum(irate(port_ethernet_statistics_out_octets{source=\"$source\", interface_name=~\"1/1/4\"}[$__rate_interval])*8)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "DOWN3",
+          "range": true,
+          "refId": "H"
+        }
+      ],
+      "title": "cVSR",
+      "type": "agenty-flowcharting-panel",
+      "valueName": "current",
+      "version": "1.0.0d"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Performance",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 0,
+        "y": 34
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "system_cpu_summary_usage_cpu_usage{source=\"$source\",subscription_name=\"sros-system-performance\"}",
+          "legendFormat": "Router: {{source}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_control_cpu_total_average_15{source=\"$source\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "Router: {{source}}",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "CPU Utilization",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 4,
+        "y": 34
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "system_cpu_summary_busiest_core_utilization_cpu_usage{source=\"$source\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Busiest Core Utilization",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "system_cpu_isa_cpu_usage{source=\"$source\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "ISA CPU Usage",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "CPU Utilization: $source",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 8,
+        "y": 34
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "system_memory_pools_summary_total_in_use{source=\"$source\"}/( system_memory_pools_summary_total_in_use{source=\"$source\"} + system_memory_pools_summary_available_memory{source=\"$source\"})*100",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "{{source}}",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "platform_control_memory_utilization{source=\"$source\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "{{source}}",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Memory Utilization",
+      "type": "stat"
+    }
+  ],
+  "refresh": "3s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "cvsr1",
+          "value": "cvsr1"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "telemetry"
+        },
+        "definition": "label_values(source)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "source",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(source)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": ["1/1/1", "1/1/2", "1/1/3", "1/1/4"],
+          "value": ["1/1/1", "1/1/2", "1/1/3", "1/1/4"]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "telemetry"
+        },
+        "definition": "label_values(interface_name)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": true,
+        "name": "interface",
+        "options": [],
+        "query": {
+          "query": "label_values(interface_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "aa-UP_AA_p1_501",
+          "value": "aa-UP_AA_p1_501"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "telemetry"
+        },
+        "definition": "label_values(network_instance_name)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "network_instance",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(network_instance_name)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "3s",
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "NAT",
+  "uid": "e4ada76c-c350-4b4a-9c1f-0fd71aec4977",
+  "version": 2,
+  "weekStart": ""
+}

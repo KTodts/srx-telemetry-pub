@@ -1,0 +1,256 @@
+username: admin
+password: SRX2024!
+insecure: true
+log: true
+log-max-size: 1G
+
+targets:
+  ler4:
+    address: ler4:57400
+    password: admin
+    subscriptions:
+      - sros-in-port-util
+      - sros-out-port-util
+      - sros-transceivers
+      - sros-system-performance
+    outputs: 
+      - prom-output
+  ler3:
+    address: ler3:57400
+    password: SRX2023!
+    subscriptions:
+      - sros-in-port-util
+      - sros-out-port-util
+      - sros-transceivers
+      - sros-system-performance
+    outputs: 
+       - prom-output
+  lsr2:
+    address: lsr2:57400
+    password: admin
+    subscriptions:
+      - sros-transceivers
+      - sros-in-port-util
+      - sros-out-port-util
+      - sros-system-performance
+  tra1: 
+    address: tra1:57400
+    password: NokiaSrl1!
+    insecure: false
+    skip-verify: true
+    subscriptions:
+      - srl-if-stats 
+      - srl-system-performance
+    outputs: 
+      - prom-output
+    # Fx1: use port 44 not 22 for 2nd 400G to LSR2
+  tra2:
+    address: tra2:57400
+    password: NokiaSrl1!
+    insecure: false
+    skip-verify: true
+    subscriptions:
+      - srl-if-stats 
+      - srl-system-performance
+    outputs: 
+      - prom-output
+subscriptions:
+  sros-transceivers:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 1s
+    paths:
+      - /state/port[port-id=*]/transceiver
+  sros-in-port-util:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 1s
+    paths:
+      - /state/port[port-id=*]/ethernet/statistics/in-utilization
+      - /state/port[port-id=*]/ethernet/oper-speed
+      - /state/port[port-id=*]/oper-state
+  sros-out-port-util:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 1s
+    paths:
+      - /state/port[port-id=*]/ethernet/statistics/out-utilization
+      - /state/port[port-id=*]/ethernet/oper-speed
+  sros-system-performance: 
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /state/system/memory-pools/summary
+      - /state/system/cpu[sample-period=1]/summary/usage
+  sros-isa-performance: 
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /state/system/cpu[sample-period=1]/isa
+      - /state/system/cpu[sample-period=1]/summary/busiest-core-utilization
+
+  sros-nat:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths:
+      - /state/isa/nat-group[id=1]/mda[mda-id=1/2]/performance/last-hour/minutes-ago[index=5]
+      - /state/isa/nat-group[id=1]/mda[mda-id=1/2]/resources/flows
+
+  sros-aa:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths:
+      - /state/application-assurance/group[aa-group-id=1]/status/summary/statistics/active-subscribers
+      - /state/application-assurance/group[aa-group-id=1]/status/summary/statistics/flow-resources
+      - /state/application-assurance/group[aa-group-id=1]/status/summary/statistics/flow-setup-rate
+      - /state/application-assurance/group[aa-group-id=1]/status/summary/statistics/traffic-rate
+      - /state/application-assurance/group[aa-group-id=1]/status/summary/statistics/packet-rate
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=DNS]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=Empty TCP]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=Existing TCP]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=Google]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=TLS]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=Unidentified UDP]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/application[application-name=YouTube]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/protocol[protocol-name=dns]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/protocol[protocol-name=empty_tcp]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/protocol[protocol-name=existing]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/protocol[protocol-name=quic]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/protocol[protocol-name=tls]/statistics
+      - /state/application-assurance/group[aa-group-id=1]/partition[aa-partition-id=1]/protocol[protocol-name=unknown_udp]/statistics
+
+  sros-isis:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /state/router[router-name=Base]/isis[isis-instance=0]/interface[interface-name=*]/level[level-number=2]/adjacencies-number     
+      - /state/router[router-name=Base]/route-table/unicast/ipv4/statistics/isis
+      - /state/router[router-name=Base]/route-table/unicast/ipv6/statistics/isis
+  sros-bgp:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /state/router[router-name=Base]/bgp/statistics/routes-per-family/ipv4
+      - /state/router[router-name=Base]/bgp/statistics/routes-per-family/ipv6
+      - /state/router[router-name=Base]/bgp/statistics/routes-per-family/vpn-ipv4
+      - /state/router[router-name=Base]/bgp/statistics/routes-per-family/vpn-ipv6
+      - /state/system/cpu[sample-period=1]
+      - /state/system/cpu[sample-period=1]/summary/busiest-core-utilization
+      - /state/router[router-name=Base]/bgp/convergence/family[family-type=ipv4]
+      - /state/router[router-name=Base]/bgp/convergence/family[family-type=ipv6]
+      - /state/router[router-name=Base]/bgp/neighbor[ip-address=*]/statistics/family-prefix/ipv4
+      - /state/router[router-name=Base]/bgp/neighbor[ip-address=*]/statistics/family-prefix/ipv6
+  bng-up:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths:
+      - /state/subscriber-mgmt/statistics/sessions[counter=*]
+  bng-cp:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths:
+     # - /state/mobile-gateway/pdn[gw-id=1]/local-address-assignment/network-realm[network-realm-name=fixed]/address-pool[name=ipoe]/statistics
+      - /state/mobile-gateway/pdn[gw-id=1]/local-address-assignment/network-realm[network-realm-name=*]/address-pool[name=*]/statistics
+      - /state/mobile-gateway/pdn[gw-id=1]/sx-n4[reference-point-name=default]/signaling/pfcp/peer[peer-address=*]/statistics/resource[group-id=1]/active-sessions
+  srl-system-performance: 
+    mode: stream
+    stream-mode: sample
+    sample-interval: 5s
+    paths: 
+      - /platform/control[slot=*]/cpu[index=all]/total
+      - /platform/control[slot=*]/memory
+  srl-if-stats:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 3s
+    paths: 
+      - /interface[name=ethernet-1/*]/oper-state
+      - /interface[name=ethernet-1/*]/statistics
+      - /interface[name=ethernet-1/*]/traffic-rate
+  srl-routes:
+    mode: stream
+    stream-mode: sample
+    sample-interval: 5s
+    paths:
+      - /network-instance[name=*]/route-table/ipv4-unicast/statistics/
+      - /network-instance[name=*]/route-table/ipv6-unicast/statistics/
+      - /network-instance[name=*]/bridge-table/statistics/
+outputs:
+  prom-output:
+    type: prometheus
+    listen: "gnmic1:9804"
+    # export-timestamps: true
+    service-registration:
+      address: consul:8500
+    event-processors:
+     - trim-prefixes
+     - rename-port-sros
+    #  - rename-srl-interface
+     - oper-state-to-int
+  prom-write:
+    type: prometheus_write
+    url: http://prometheus:9090/api/v1/write
+    export-timestamps: true
+    metadata:
+      include: true
+    event-processors:
+     - trim-prefixes
+     - rename-port-sros
+     - oper-state-to-int
+  debug-file:
+    type: file
+    filename: /app/gnmic-subscription.log
+    format: event
+    event-processors:
+     - trim-prefixes
+     - rename-port-sros
+     - oper-state-to-int
+processors:
+  trim-prefixes:
+    event-strings:
+      value-names:
+        - "^/state/.*"
+      transforms:
+        - trim-prefix:
+            apply-on: "name"
+            prefix: "/state/"
+  oper-state-to-int:
+    event-strings:
+      value-names:
+        - ".*"
+      transforms:
+        - replace:
+            apply-on: "value"
+            old: "up"
+            new: "1"
+        - replace: 
+            apply-on: "value"
+            old: "down"
+            new: "0"   
+  rename-port-sros:
+    event-strings:
+      tag-names:
+        - "^port_port-id"
+      transforms:
+        - replace:
+            apply-on: "name"
+            old: "port_port-id"
+            new: "interface_name"
+  #### breakouts?????
+  # rename-srl-interface:
+  #   event-strings:
+  #     tag-names:
+  #       - "^interface_name"
+  #     transforms:
+  #       - replace:
+  #           apply-on: "value"
+  #           old: "ethernet-(\\d+)/(\\d+)"
+  #           new: "e$1-$2"

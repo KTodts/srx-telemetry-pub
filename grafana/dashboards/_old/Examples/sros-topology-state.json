@@ -1,0 +1,750 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations \u0026 Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 6,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "_m1sh-unk"
+      },
+      "editedFlag": false,
+      "flowchartsData": {
+        "flowcharts": [
+          {
+            "allowDrawio": false,
+            "center": true,
+            "csv": "## See more information for the syntax at https://drawio-app.com/import-from-csv-to-drawio/\n##\n## Example CSV. Use ## for comments and # for configuration.\n## The following names are reserved and should not be used (or ignored):\n## id, tooltip, placeholder(s), link and label (see below)\n##\n#\n## Node label with placeholders and HTML.\n## Default is '%name_of_first_column%'.\n#\n# label: %name%\u003cbr\u003e\u003ci style=\"color:gray;\"\u003e%position%\u003c/i\u003e\u003cbr\u003e\u003ca href=\"mailto:%email%\"\u003eEmail\u003c/a\u003e\n#\n## Node style (placeholders are replaced once).\n## Default is the current style for nodes.\n#\n# style: label;image=%image%;whiteSpace=wrap;html=1;rounded=1;fillColor=%fill%;strokeColor=%stroke%;\n#\n## Parent style for nodes with child nodes (placeholders are replaced once).\n#\n# parentstyle: swimlane;whiteSpace=wrap;html=1;childLayout=stackLayout;horizontal=1;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;\n#\n## Optional column name that contains a reference to a named style in styles.\n## Default is the current style for nodes.\n#\n# stylename: -\n#\n## JSON for named styles of the form {\"name\": \"style\", \"name\": \"style\"} where style is a cell style with\n## placeholders that are replaced once.\n#\n# styles: -\n#\n## Optional column name that contains a reference to a named label in labels.\n## Default is the current label.\n#\n# labelname: -\n#\n## JSON for named labels of the form {\"name\": \"label\", \"name\": \"label\"} where label is a cell label with\n## placeholders.\n#\n# labels: -\n#\n## Uses the given column name as the identity for cells (updates existing cells).\n## Default is no identity (empty value or -).\n#\n# identity: -\n#\n## Uses the given column name as the parent reference for cells. Default is no parent (empty or -).\n## The identity above is used for resolving the reference so it must be specified.\n#\n# parent: -\n#\n## Adds a prefix to the identity of cells to make sure they do not collide with existing cells (whose\n## IDs are numbers from 0..n, sometimes with a GUID prefix in the context of realtime collaboration).\n## Default is csvimport-.\n#\n# namespace: csvimport-\n#\n## Connections between rows (\"from\": source colum, \"to\": target column).\n## Label, style and invert are optional. Defaults are '', current style and false.\n## If placeholders are used in the style, they are replaced with data from the source.\n## An optional placeholders can be set to target to use data from the target instead.\n## In addition to label, an optional fromlabel and tolabel can be used to name the column\n## that contains the text for the label in the edges source or target (invert ignored).\n## The label is concatenated in the form fromlabel + label + tolabel if all are defined.\n## The target column may contain a comma-separated list of values.\n## Multiple connect entries are allowed.\n#\n# connect: {\"from\": \"manager\", \"to\": \"name\", \"invert\": true, \"label\": \"manages\", \\\n#          \"style\": \"curved=1;endArrow=blockThin;endFill=1;fontSize=11;\"}\n# connect: {\"from\": \"refs\", \"to\": \"id\", \"style\": \"curved=1;fontSize=11;\"}\n#\n## Node x-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# left: \n#\n## Node y-coordinate. Possible value is a column name. Default is empty. Layouts will\n## override this value.\n#\n# top: \n#\n## Node width. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the width. Default is auto.\n#\n# width: auto\n#\n## Node height. Possible value is a number (in px), auto or an @ sign followed by a column\n## name that contains the value for the height. Default is auto.\n#\n# height: auto\n#\n## Padding for autosize. Default is 0.\n#\n# padding: -12\n#\n## Comma-separated list of ignored columns for metadata. (These can be\n## used for connections and styles but will not be added as metadata.)\n#\n# ignore: id,image,fill,stroke,refs,manager\n#\n## Column to be renamed to link attribute (used as link).\n#\n# link: url\n#\n## Spacing between nodes. Default is 40.\n#\n# nodespacing: 40\n#\n## Spacing between levels of hierarchical layouts. Default is 100.\n#\n# levelspacing: 100\n#\n## Spacing between parallel edges. Default is 40. Use 0 to disable.\n#\n# edgespacing: 40\n#\n## Name or JSON of layout. Possible values are auto, none, verticaltree, horizontaltree,\n## verticalflow, horizontalflow, organic, circle or a JSON string as used in Layout, Apply.\n## Default is auto.\n#\n# layout: auto\n#\n## ---- CSV below this line. First line are column names. ----\nname,position,id,location,manager,email,fill,stroke,refs,url,image\nEvan Miller,CFO,emi,Office 1,,me@example.com,#dae8fc,#6c8ebf,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-9-2-128.png\nEdward Morrison,Brand Manager,emo,Office 2,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-128.png\nRon Donovan,System Admin,rdo,Office 3,Evan Miller,me@example.com,#d5e8d4,#82b366,\"emo,tva\",https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-2-128.png\nTessa Valet,HR Director,tva,Office 4,Evan Miller,me@example.com,#d5e8d4,#82b366,,https://www.draw.io,https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png\n",
+            "download": false,
+            "editorTheme": "dark",
+            "editorUrl": "https://www.draw.io",
+            "enableAnim": true,
+            "grid": false,
+            "lock": true,
+            "name": "Main",
+            "scale": true,
+            "tooltip": true,
+            "type": "xml",
+            "url": "http://\u003cYourUrl\u003e/\u003cYour XML/drawio file/api\u003e",
+            "xml": "\u003cmxfile host=\"embed.diagrams.net\" modified=\"2022-06-02T21:56:28.051Z\" agent=\"5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36\" etag=\"o1bjLwazwqUETPXm1VzO\" version=\"18.2.1\" type=\"embed\"\u003e\u003cdiagram id=\"CiOTHBhVCTicwPzd7bna\" name=\"Page-1\"\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\u003c/diagram\u003e\u003c/mxfile\u003e",
+            "zoom": "100%"
+          }
+        ]
+      },
+      "format": "short",
+      "graphId": "flowchart_12",
+      "gridPos": {
+        "h": 20,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "newFlag": false,
+      "rulesData": {
+        "rulesData": [
+          {
+            "aggregation": "current",
+            "alias": "1/1/c67/1",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 1,
+            "overlayIcon": false,
+            "pattern": "1/1/c67/1",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "51",
+                "style": "fillColor"
+              },
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "37",
+                "style": "strokeColor"
+              },
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "46",
+                "style": "fillColor"
+              },
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "40",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "1/1/c23/1",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 2,
+            "overlayIcon": false,
+            "pattern": "1/1/c23/1",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "52",
+                "style": "fillColor"
+              },
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "44",
+                "style": "fillColor"
+              },
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "53",
+                "style": "fillColor"
+              },
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "38",
+                "style": "strokeColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          },
+          {
+            "aggregation": "current",
+            "alias": "1/1/c70/1",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "column": "Time",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "eventData": [],
+            "eventProp": "id",
+            "eventRegEx": false,
+            "gradient": false,
+            "hidden": false,
+            "invert": true,
+            "linkData": [],
+            "linkProp": "id",
+            "linkRegEx": true,
+            "mappingType": 1,
+            "metricType": "serie",
+            "order": 3,
+            "overlayIcon": false,
+            "pattern": "1/1/c70/1",
+            "rangeData": [],
+            "reduce": true,
+            "refId": "A",
+            "sanitize": false,
+            "shapeData": [
+              {
+                "colorOn": "a",
+                "hidden": false,
+                "pattern": "57",
+                "style": "fillColor"
+              }
+            ],
+            "shapeProp": "id",
+            "shapeRegEx": true,
+            "stringThresholds": ["/.*/", "/.*/"],
+            "textData": [],
+            "textProp": "id",
+            "textRegEx": true,
+            "thresholds": [50, 80],
+            "tooltip": false,
+            "tooltipColors": false,
+            "tooltipLabel": "",
+            "tooltipOn": "a",
+            "tpDirection": "v",
+            "tpGraph": false,
+            "tpGraphScale": "linear",
+            "tpGraphSize": "100%",
+            "tpGraphType": "line",
+            "type": "number",
+            "unit": "short",
+            "valueData": []
+          }
+        ]
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "expr": "SROS_port_state_port_state",
+          "legendFormat": "{{port_id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Weathermap",
+      "type": "agenty-flowcharting-panel",
+      "valueName": "current",
+      "version": "0.9.0"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "_m1sh-unk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 0,
+            "spanNulls": true
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "Established"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "dark-red",
+                  "index": 1,
+                  "text": "Down"
+                },
+                "to": 100
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "mergeValues": false,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.5.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "expr": "SROS_bgp_state_session_state",
+          "legendFormat": "{{ip_address}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "BGP peer states",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "_m1sh-unk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "rate(SROS_port_in_in_octets[30s])*8",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{port_id}}_in",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "expr": "-rate(SROS_port_out_out_octets[30s])*8",
+          "hide": false,
+          "legendFormat": "{{port_id}}_out",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Interface throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "_m1sh-unk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 12,
+        "y": 13
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "SROS_unicast_ipv4_bgp_active_routes",
+          "instant": false,
+          "legendFormat": "BGPv4",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "expr": "SROS_unicast_ipv4_bgp_label_active_routes",
+          "hide": false,
+          "legendFormat": "BGPv4-LU",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "expr": "SROS_unicast_ipv6_bgp_active_routes",
+          "hide": false,
+          "legendFormat": "BGPv6",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "expr": "SROS_unicast_ipv6_bgp_label_active_routes",
+          "hide": false,
+          "legendFormat": "BGPv6-LU",
+          "range": true,
+          "refId": "D"
+        }
+      ],
+      "title": "BGP prefix stats",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "_m1sh-unk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 19,
+        "y": 13
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "_m1sh-unk"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "SROS_cpu_usage_cpu_usage",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "CPU Load",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Load",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "SROS Topology/State",
+  "uid": "SfFqh-unk",
+  "version": 2,
+  "weekStart": ""
+}

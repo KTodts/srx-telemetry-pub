@@ -1,0 +1,107 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations \u0026 Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1703529143619584,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "telemetry"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 27,
+        "w": 23,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "animationControlEnabled": true,
+        "animationsEnabled": true,
+        "debuggingCtr": {
+          "colorsCtr": 0,
+          "dataCtr": 0,
+          "displaySvgCtr": 0,
+          "mappingsCtr": 0,
+          "timingsCtr": 0
+        },
+        "highlighterEnabled": true,
+        "highlighterSelection": "",
+        "panZoomEnabled": true,
+        "panelConfig": "http://100.116.162.35:8080/panelConfig_srx_emea.yml",
+        "siteConfig": "http://100.116.162.35:8080/siteConfig.yml",
+        "svg": "http://100.116.162.35:8080/diagrams/SReXpertsTopology-EMEAv2.drawio.svg",
+        "testDataEnabled": true,
+        "timeSliderEnabled": false,
+        "timeSliderMode": "local"
+      },
+      "pluginVersion": "1.18.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "100* port_ethernet_statistics_in_utilization * port_ethernet_oper_speed",
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "100* port_ethernet_statistics_out_utilization * port_ethernet_oper_speed",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Network Topology",
+      "type": "andrewbmchugh-flow-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "auto",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "srx-emea",
+  "uid": "aen6xiby6glq8c",
+  "version": 1
+}

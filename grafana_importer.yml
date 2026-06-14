@@ -1,0 +1,19 @@
+context_name: all
+
+contexts:
+  all:
+    url: http://100.100.5.110:3000
+    #token: "<<Grafana API Token>>"
+    user_name: admin
+    password: admin
+    output_path: /app/exports
+    watched:
+      # - Examples
+      # - General
+      # - 2024
+      # - 2023
+      #- 2025
+      - 2026
+global:
+  debug: true
+  ignore_ssl_errors: true

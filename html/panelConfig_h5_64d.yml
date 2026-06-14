@@ -1,0 +1,41 @@
+---
+anchors:
+  thresholds-operstate: &thresholds-operstate
+    - color: "#FF3154" # red
+      level: 0
+    - color: "#4BDD33" # green
+      level: 1
+  thresholds-traffic: &thresholds-traffic
+    - color: "#bec8d2" # grey
+      level: 0
+    - color: "#4BDD33" # green
+      level: 199999999999
+    - color: "#FFFF00" # yellow
+      level: 500000000000
+    - color: "#FF8000" # orange
+      level: 1000000000000
+    - color: "#FF3154" # red
+      level: 5000000000000
+cellColorMappings:
+  darkTheme:
+    green: "#00FF00"
+  lightTheme:
+    green: "light-green"
+  label-config: &label-config
+    separator: replace
+    units: bps
+    decimalPoints: 1
+    valueMappings:
+      - valueMax: 1000000000000
+        text:
+      - valueMin: 199999999999
+cellIdPreamble: cell-
+cells:
+  h5-64d:1-33:
+    dataRef: h5-64d:ethernet-1/33:state
+    fillColor:
+      thresholds: *thresholds-operstate
+  h5-64d:1-35:
+    dataRef: h5-64d:ethernet-1/35:state
+    fillColor:
+      thresholds: *thresholds-operstate
