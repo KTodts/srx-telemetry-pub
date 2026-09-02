@@ -15,6 +15,16 @@ targets:
       - srl-queue-stats
     outputs:
       - prom-output
+  h5-64o: 
+    address: h5-64o:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+      - srl-queue-stats
+    outputs:
+      - prom-output
   # sar-1:
   #   address: sar-1:57400
   #   subscriptions:
