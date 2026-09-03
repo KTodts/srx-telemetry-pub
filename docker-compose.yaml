@@ -41,17 +41,25 @@ services:
     ports: 
       - 9804:9804
     depends_on:
-      - consul-agent 
+      consul-agent:
+        condition: service_healthy 
     ######################
   consul-agent:
     image: hashicorp/consul:latest
     container_name: consul
+    restart: unless-stopped
     networks:
       - br-mgmt
     ports:
       - 8500:8500
       - 8600:8600/udp
     command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0    
+    healthcheck:
+      test: ["CMD-SHELL", "consul members >/dev/null 2>&1 && consul info 2>/dev/null | grep -q 'leader = true'"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -70,6 +78,16 @@ services:
       - 9090:9090
     networks:
       - br-mgmt
+    restart: unless-stopped
+    depends_on:
+      consul-agent:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:9090/-/ready"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
   ######################
   pushgateway:
         container_name: pushgateway
@@ -95,6 +113,9 @@ services:
   grafana:
     container_name: grafana
     restart: unless-stopped
+    depends_on:
+      prometheus:
+        condition: service_healthy
     image: 'grafana/grafana:12.4' # or 11.2
     # image: 'grafana/grafana:11.6.2' # or 11.2
     user: root
