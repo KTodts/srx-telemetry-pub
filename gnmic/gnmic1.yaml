@@ -268,9 +268,14 @@ subscriptions:
     stream-mode: sample
     sample-interval: 3s
     paths: 
-      - /qos/interfaces/interface[interface-id=ethernet-1/3]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
-      - /qos/interfaces/interface[interface-id=ethernet-1/3]/output/queues/queue[queue-name=unicast-*]/queue-depth
-      - /qos/packet-trimming/enable-packet-trimming
+      - /qos/interfaces/interface[interface-id=ethernet-1/1/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/1/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/2/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/2/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/3/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/3/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/4/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/4/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
 outputs:
   prom-output:
     type: prometheus
