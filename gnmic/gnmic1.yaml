@@ -272,10 +272,10 @@ subscriptions:
       - /qos/interfaces/interface[interface-id=ethernet-1/1/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
       - /qos/interfaces/interface[interface-id=ethernet-1/2/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
       - /qos/interfaces/interface[interface-id=ethernet-1/2/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
-      - /qos/interfaces/interface[interface-id=ethernet-1/3/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
-      - /qos/interfaces/interface[interface-id=ethernet-1/3/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
-      - /qos/interfaces/interface[interface-id=ethernet-1/4/1]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
-      - /qos/interfaces/interface[interface-id=ethernet-1/4/2]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/5]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/6]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/7]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
+      - /qos/interfaces/interface[interface-id=ethernet-1/8]/output/queues/queue[queue-name=unicast-*]/queue-statistics/aggregate-statistics
 outputs:
   prom-output:
     type: prometheus
