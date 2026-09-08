@@ -30,8 +30,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
-        "w": 11,
+        "h": 22,
+        "w": 10,
         "x": 0,
         "y": 0
       },
@@ -93,9 +93,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 13,
-        "x": 11,
+        "h": 11,
+        "w": 14,
+        "x": 10,
         "y": 0
       },
       "id": 11,
@@ -124,7 +124,7 @@
           "refId": "A"
         }
       ],
-      "title": "Traffic throughput one link",
+      "title": "Traffic throughput one port",
       "type": "gauge"
     },
     {
@@ -189,12 +189,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 14,
-        "w": 6,
-        "x": 11,
-        "y": 8
+        "h": 11,
+        "w": 7,
+        "x": 10,
+        "y": 11
       },
-      "id": 13,
+      "id": 12,
       "options": {
         "legend": {
           "calcs": [],
@@ -214,7 +214,7 @@
           "refId": "A"
         }
       ],
-      "title": "Downlinks throughput",
+      "title": "GPU facing edge links throughput",
       "type": "timeseries"
     },
     {
@@ -279,12 +279,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 14,
+        "h": 11,
         "w": 7,
         "x": 17,
-        "y": 8
+        "y": 11
       },
-      "id": 12,
+      "id": 13,
       "options": {
         "legend": {
           "calcs": [],
@@ -304,53 +304,8 @@
           "refId": "A"
         }
       ],
-      "title": "Uplinks throughput",
+      "title": "Interswitch links throughput",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "telemetry"
-      },
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 11,
-        "w": 11,
-        "x": 0,
-        "y": 11
-      },
-      "id": 14,
-      "options": {
-        "animationControlEnabled": true,
-        "animationsEnabled": true,
-        "debuggingCtr": {
-          "colorsCtr": 0,
-          "dataCtr": 0,
-          "displaySvgCtr": 0,
-          "mappingsCtr": 0,
-          "timingsCtr": 0
-        },
-        "highlighterEnabled": true,
-        "highlighterSelection": "",
-        "panZoomEnabled": true,
-        "panelConfig": "http://100.116.162.98:8080/panelConfig_h6_64o.yml",
-        "siteConfig": "http://100.116.162.98:8080/siteConfig.yml",
-        "svg": "http://100.116.162.98:8080/diagrams/h6-mrc-logical-topology.drawio.svg",
-        "testDataEnabled": true,
-        "timeSliderEnabled": false,
-        "timeSliderMode": "local"
-      },
-      "pluginVersion": "1.20.1",
-      "targets": [
-        {
-          "refId": "A"
-        }
-      ],
-      "title": "Topology",
-      "type": "andrewbmchugh-flow-panel"
     }
   ],
   "preload": false,
@@ -416,6 +371,6 @@
   "timezone": "browser",
   "title": "MRC",
   "uid": "gdnt8d",
-  "version": 5,
+  "version": 11,
   "weekStart": ""
 }
