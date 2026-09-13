@@ -75,20 +75,25 @@
           "color": {
             "mode": "thresholds"
           },
+          "decimals": 1,
+          "displayName": "Single port speed",
+          "fieldMinMax": false,
           "mappings": [],
+          "min": 0,
           "thresholds": {
-            "mode": "absolute",
+            "mode": "percentage",
             "steps": [
               {
                 "color": "green",
                 "value": 0
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "dark-green",
+                "value": 90
               }
             ]
-          }
+          },
+          "unit": "bps"
         },
         "overrides": []
       },
@@ -112,16 +117,22 @@
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
-        "sizing": "auto"
+        "sizing": "auto",
+        "text": {}
       },
       "pluginVersion": "12.4.4",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
           "editorMode": "code",
-          "expr": "",
+          "expr": "sum(\r\n  interface_traffic_rate_in_bps{\r\n    source=\"h6-64o\",\r\n    interface_name=~\"ethernet-1/29/.*\"\r\n  }\r\n)",
+          "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A"
+          "refId": "B"
         }
       ],
       "title": "Traffic throughput one port",
@@ -138,7 +149,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisBorderShow": false,
+            "axisBorderShow": true,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -146,8 +157,8 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
+            "fillOpacity": 20,
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -172,6 +183,8 @@
             }
           },
           "mappings": [],
+          "max": 1800000000000,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -184,7 +197,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "bps"
         },
         "overrides": []
       },
@@ -211,6 +225,10 @@
       "pluginVersion": "12.4.4",
       "targets": [
         {
+          "editorMode": "code",
+          "expr": "sum(\r\n  interface_traffic_rate_in_bps{\r\n    source=\"h6-64o\",\r\n    interface_name=~\"ethernet-1/29/.*\"\r\n  }\r\n)",
+          "legendFormat": "ethernet-1/29",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -228,7 +246,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisBorderShow": false,
+            "axisBorderShow": true,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -236,8 +254,8 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
+            "fillOpacity": 20,
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -245,23 +263,28 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "auto",
-            "showValues": false,
+            "showValues": true,
             "spanNulls": false,
             "stacking": {
               "group": "A",
-              "mode": "none"
+              "mode": "normal"
             },
             "thresholdsStyle": {
               "mode": "off"
             }
           },
           "mappings": [],
+          "max": 1800000000000,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -274,7 +297,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "bps"
         },
         "overrides": []
       },
@@ -301,7 +325,47 @@
       "pluginVersion": "12.4.4",
       "targets": [
         {
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h6-64o\",interface_name=\"ethernet-1/1/1\"}",
+          "legendFormat": "{{interface_name}}",
+          "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h6-64o\",interface_name=\"ethernet-1/1/2\"}",
+          "instant": false,
+          "legendFormat": "{{interface_name}}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h6-64o\",interface_name=\"ethernet-1/2/1\"}",
+          "instant": false,
+          "legendFormat": "{{interface_name}}",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h6-64o\",interface_name=\"ethernet-1/2/2\"}",
+          "instant": false,
+          "legendFormat": "{{interface_name}}",
+          "range": true,
+          "refId": "D"
         }
       ],
       "title": "Interswitch links throughput",
@@ -316,8 +380,8 @@
     "list": [
       {
         "current": {
-          "text": "",
-          "value": ""
+          "text": "unicast-0",
+          "value": "unicast-0"
         },
         "datasource": {
           "type": "prometheus",
@@ -339,8 +403,8 @@
       },
       {
         "current": {
-          "text": "",
-          "value": ""
+          "text": "ethernet-1/1",
+          "value": "ethernet-1/1"
         },
         "datasource": {
           "type": "prometheus",
@@ -371,6 +435,6 @@
   "timezone": "browser",
   "title": "MRC",
   "uid": "gdnt8d",
-  "version": 11,
+  "version": 19,
   "weekStart": ""
 }
