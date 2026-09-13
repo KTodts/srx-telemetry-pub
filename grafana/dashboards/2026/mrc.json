@@ -51,7 +51,7 @@
         "panZoomEnabled": true,
         "panelConfig": "http://100.116.162.98:8080/panelConfig_h6_64o.yml",
         "siteConfig": "http://100.116.162.98:8080/siteConfig.yml",
-        "svg": "http://100.116.162.98:8080/diagrams/h6-mrc-topology.drawio.svg",
+        "svg": "http://100.116.162.98:8080/diagrams/h6-mrc-logical-topology.drawio.svg",
         "testDataEnabled": true,
         "timeSliderEnabled": false,
         "timeSliderMode": "local"
@@ -59,6 +59,11 @@
       "pluginVersion": "1.20.1",
       "targets": [
         {
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "interface_traffic_rate_in_bps{source=\"h5-64o\",interface_name=\"ethernet-1/1\"}",
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -435,6 +440,6 @@
   "timezone": "browser",
   "title": "MRC",
   "uid": "gdnt8d",
-  "version": 19,
+  "version": 3,
   "weekStart": ""
 }
