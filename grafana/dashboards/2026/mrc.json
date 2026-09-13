@@ -65,6 +65,90 @@
           "legendFormat": "{{source}}:{{interface_name}}:in",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_in_bps{source=\"h5-64o\",interface_name=\"ethernet-1/2\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_in_bps{source=\"h5-64o\",interface_name=\"ethernet-1/3\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_in_bps{source=\"h5-64o\",interface_name=\"ethernet-1/4\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h5-64o\",interface_name=\"ethernet-1/5\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h5-64o\",interface_name=\"ethernet-1/6\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h5-64o\",interface_name=\"ethernet-1/7\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=\"h5-64o\",interface_name=\"ethernet-1/8\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "H"
         }
       ],
       "title": "Physical Topology",
@@ -440,6 +524,6 @@
   "timezone": "browser",
   "title": "MRC",
   "uid": "gdnt8d",
-  "version": 3,
+  "version": 6,
   "weekStart": ""
 }
