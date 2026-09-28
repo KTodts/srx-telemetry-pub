@@ -25,6 +25,42 @@ targets:
       - srl-queue-stats
     outputs:
       - prom-output
+  d3l-1: 
+    address: d3l-1:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+    outputs:
+      - prom-output
+  d3l-2: 
+    address: d3l-2:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+    outputs:
+      - prom-output
+  x1b-1: 
+    address: x1b-1:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+    outputs:
+      - prom-output
+  x1b-2: 
+    address: x1b-2:57400
+    password: NokiaSrl1!
+    skip-verify: true
+    insecure: false
+    subscriptions:
+      - srl-if-stats
+    outputs:
+      - prom-output
   # sar-1:
   #   address: sar-1:57400
   #   subscriptions:
