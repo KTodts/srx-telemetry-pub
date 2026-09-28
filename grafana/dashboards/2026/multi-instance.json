@@ -68,6 +68,30 @@
           "legendFormat": "{{source}}:{{interface_name}}:state",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_in_bps{source=~\"d3l-1|d3l-2|x1b-2\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:in",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "telemetry"
+          },
+          "editorMode": "code",
+          "expr": "interface_traffic_rate_out_bps{source=~\"d3l-1|d3l-2|x1b-1|x1b-2\"}",
+          "instant": false,
+          "legendFormat": "{{source}}:{{interface_name}}:out",
+          "range": true,
+          "refId": "C"
         }
       ],
       "title": "Topology",
@@ -76,6 +100,7 @@
     }
   ],
   "preload": false,
+  "refresh": "5s",
   "schemaVersion": 42,
   "tags": [],
   "templating": {

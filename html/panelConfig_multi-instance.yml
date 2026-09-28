@@ -5,7 +5,7 @@ anchors:
       level: 0
     - color: "#4BDD33" # green
       level: 1
-  thresholds-traffic: &thresholds-traffic
+  thresholds-traffic-h: &thresholds-traffic-h
     - color: "#bec8d2" # grey
       level: 0
     - color: "#4BDD33" # green
@@ -16,6 +16,17 @@ anchors:
       level: 1000000000000
     - color: "#FF3154" # red
       level: 5000000000000
+  thresholds-traffic-l: &thresholds-traffic-l
+    - color: "#bec8d2" # grey
+      level: 0
+    - color: "#4BDD33" # green
+      level: 199999
+    - color: "#FFFF00" # yellow
+      level: 500000
+    - color: "#FF8000" # orange
+      level: 1000000
+    - color: "#FF3154" # red
+      level: 5000000
   label-config: &label-config
     separator: replace
     units: bps
@@ -29,6 +40,10 @@ cellColorMappings:
     green: "#00FF00"
   lightTheme:
     green: "light-green"
+data:
+  timePoint: last
+  noData:
+    value: 0
 cellIdPreamble: cell-
 cells:
   D3L-1:1:
@@ -79,3 +94,74 @@ cells:
     dataRef: d3l-2:ethernet-1/3:state
     fillColor:
       thresholds: *thresholds-operstate
+  D3L-1:1:in:
+    dataRef: d3l-1:ethernet-1/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-1:1:out:
+    dataRef: d3l-1:ethernet-1/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-1:2:out:
+    dataRef: d3l-1:ethernet-1/2:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-1:3:out:
+    dataRef: d3l-1:ethernet-1/3:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  X1b-1:1:out:
+    dataRef: d3l-1:ethernet-1/2:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  X1b-1:2:out:
+    dataRef: d3l-2:ethernet-1/2:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  X1b-1:3:out:
+    dataRef: x1b-2:ethernet-1/3:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  X1b-2:1:out:
+    dataRef: x1b-2:ethernet-1/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  X1b-2:2:out:
+    dataRef: x1b-2:ethernet-1/2:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  X1b-2:3:out:
+    dataRef: x1b-2:ethernet-1/3:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-2:1:in:
+    dataRef: d3l-2:ethernet-1/1:in
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-2:1:out:
+    dataRef: d3l-2:ethernet-1/1:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-2:2:out:
+    dataRef: d3l-2:ethernet-1/2:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+  D3L-2:3:out:
+    dataRef: d3l-2:ethernet-1/3:out
+    label: *label-config
+    strokeColor:
+      thresholds: *thresholds-traffic-l
+
